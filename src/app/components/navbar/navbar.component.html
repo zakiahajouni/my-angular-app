@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="#" class="navbar-logo">EasyConnect</a>
+    <div class="navbar-links">
+      <a href="#">{{ translate('navbar.home') }}</a>
+      <a href="#">{{ translate('navbar.features') }}</a>
+      <a href="#">{{ translate('navbar.pricing') }}</a>
+      <a href="#">{{ translate('navbar.about') }}</a>
+      <a href="#">{{ translate('navbar.contact') }}</a>
+    </div>
+    <select (change)="changeLanguage($event)" class="language-selector">
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+    </select>
+  </div>
+</nav>

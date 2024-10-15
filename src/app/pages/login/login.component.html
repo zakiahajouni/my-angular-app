@@ -1,40 +1,66 @@
+<app-navbar></app-navbar>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CommunAid Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="login.component.css">
+    <title>Modern Login Page | AsmrProg</title>
 </head>
-<body>
-    <div class="login-container">
-        <div class="login-card">
-            <div class="card-content">
-                <!-- Image Section -->
-                <div class="image-container">
-                    <img src="https://img.freepik.com/free-vector/high-five-concept-illustration_114360-1181.jpg?t=st=1728590992~exp=1728594592~hmac=b5823d1058879e6d740634d4ca83a04fd86c71209c6511db780df3d5c5f305a2&w=740"  alt="CommunAid Image">
-                </div>
 
-                <!-- Login Form Section -->
-                <div class="form-container">
-                    <h2>LocalAid</h2>
-                    <form action="/login" method="post">
-                        <div class="input-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                        </div>
-                        <div class="btn-container">
-                            <button type="submit">Login</button>
-                        </div>
-                    </form>
-                    <p class="signup-text">Don't have an account? <a href="/signup">Sign up</a></p>
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registeration</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+           <!--      <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div> -->
+                <span>or use your email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                  <img src="./assets/img/Mobile login-rafiki.png" alt="Mobile login" width="300" height="300">
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
