@@ -1,0 +1,26 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "pricing": "Tarification",
+    "about": "À propos",
+    "contact": "Contact",
+    "language": "Langue",
+    "english": "EN",
+    "french": "FR"
+  },
+  "login": {
+    "signIn": "Se Connecter",
+    "signUp": "S'inscrire",
+    "email": "Email",
+    "password": "Mot de passe",
+    "forgetPassword": "Mot de passe oublié?",
+    "welcomeBack": "Bon retour!",
+    "enterDetails": "Entrez vos informations personnelles pour utiliser toutes les fonctionnalités du site"
+  },
+  "signup": {
+    "createAccount": "Créer un compte",
+    "name": "Nom",
+    "orUseEmail": "ou utilisez votre email pour l'inscription"
+  }
+}

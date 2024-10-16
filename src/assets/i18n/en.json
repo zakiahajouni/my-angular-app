@@ -1,0 +1,26 @@
+{
+  "navbar": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language",
+    "english": "EN",
+    "french": "FR"
+  },
+  "login": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "forgetPassword": "Forget Your Password?",
+    "welcomeBack": "Welcome Back!",
+    "enterDetails": "Enter your personal details to use all of site features"
+  },
+  "signup": {
+    "createAccount": "Create Account",
+    "name": "Name",
+    "orUseEmail": "or use your email for registration"
+  }
+}
