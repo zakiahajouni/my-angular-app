@@ -10,7 +10,7 @@ export class NavbarComponent {
   currentLang: string;
 
   constructor(private translationService: TranslationService) {
-    this.currentLang = 'en'; // Default language
+    this.currentLang = 'en';
   }
 
   changeLanguage(event: Event) {

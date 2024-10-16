@@ -49,11 +49,39 @@
   width: 100%;
 }
 
+/* Auth Buttons and Language Selector Container */
+.auth-language-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between buttons and language selector */
+}
+
+/* Auth Buttons Styles */
+.auth-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.connexion-button, .signup-button {
+  background-color: #fff;
+  color: #4DA768;
+  padding: 5px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.connexion-button:hover, .signup-button:hover {
+  background-color: #e0e0e0;
+}
+
 /* Language Selector Styles */
 .language-selector {
   background-color: #fff;
   color: #4DA768;
-   padding: 2px 5px;
+  padding: 2px 5px;
   border-radius: 4px;
   font-size: 14px;
   cursor: pointer;
@@ -105,6 +133,17 @@
     margin: 15px 0;
   }
 
+  .auth-buttons {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .connexion-button, .signup-button {
+    width: 200px;
+    text-align: center;
+  }
+
   .navbar-toggle-label {
     display: flex;
   }
@@ -116,6 +155,5 @@
   /* Positioning language selector below links for mobile view */
   .language-selector {
     margin-top: 20px;
-
   }
 }
