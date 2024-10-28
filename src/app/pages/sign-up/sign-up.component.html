@@ -1,41 +1,59 @@
 <app-navbar></app-navbar>
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+  <mat-card class="sign-up-card">
+    <mat-tab-group  class="tab-group">
+      <!-- Personal Information Tab -->
+      <mat-tab label="{{ translate('signup.personalInfo') }}">
+        <form>
+          <mat-form-field appearance="outline" class="full-width top-margin">
+            <mat-label>{{ translate('signup.fullName') }}</mat-label>
+            <input matInput type="text" placeholder="{{ translate('signup.nameEnter') }}">
+          </mat-form-field>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="sign-up.component.css">
-    <title>Modern Sign-Up Page | AsmrProg</title>
-</head>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('signup.city') }}</mat-label>
+            <input matInput type="text">
+          </mat-form-field>
 
-<body>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('signup.governorate') }}</mat-label>
+            <input matInput type="text">
+          </mat-form-field>
 
-    <div class="container" id="container">
-        <div class="form-container sign-up">
-            <form>
-                <h1>{{ translate('signup.createAccount') }}</h1>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('signup.phoneNumber') }}</mat-label>
+            <input matInput type="tel">
+          </mat-form-field>
 
-                <input type="text" placeholder="{{ translate('signup.name') }}">
-                <input type="email" placeholder="{{ translate('login.email') }}">
-                <input type="password" placeholder="{{ translate('login.password') }}">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('signup.cin') }}</mat-label>
+            <input matInput type="text">
+          </mat-form-field>
+        </form>
+      </mat-tab>
 
-                <button>{{ translate('signup.createAccount') }}</button>
-            </form>
-        </div>
+      <!-- Account Information Tab -->
+      <mat-tab label="{{ translate('signup.accountInfo') }}">
+        <form>
+          <mat-form-field appearance="outline" class="full-width top-margin">
+            <mat-label>{{ translate('login.email') }}</mat-label>
+            <input matInput type="email">
+          </mat-form-field>
 
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-right">
-                    <img src="./assets/img/Sign up.png" alt="Sign up illustration" width="300" height="300">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('login.password') }}</mat-label>
+            <input matInput type="password">
+          </mat-form-field>
 
-                </div>
-            </div>
-        </div>
-    </div>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('signup.confirmPassword') }}</mat-label>
+            <input matInput type="password">
+          </mat-form-field>
 
-</body>
-
-</html>
+          <button mat-raised-button class="button">{{ translate('signup.createAccount') }}</button>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

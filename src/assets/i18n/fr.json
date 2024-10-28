@@ -21,6 +21,15 @@
   "signup": {
     "createAccount": "Créer un compte",
     "name": "Nom",
-    "orUseEmail": "ou utilisez votre email pour l'inscription"
-  }
+    "orUseEmail": "ou utilisez votre email pour l'inscription",
+    "personalInfo": "Informations Personnelles",
+    "accountInfo": "Informations de Compte",
+    "fullName": "Nom Complet",
+    "nameEnter": "Entrez votre nom",
+    "city": "Ville",
+    "governorate": "Gouvernorat",
+    "phoneNumber": "Numéro de Téléphone",
+    "cin": "CIN",
+    "confirmPassword": "Confirmer le Mot de Passe"
+   }
 }
