@@ -9,8 +9,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+  import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatOptionModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -27,8 +28,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule
-
+  MatInputModule,
+   MatAutocompleteModule,
+  MatOptionModule
 
   ]
 

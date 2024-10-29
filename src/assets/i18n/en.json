@@ -32,4 +32,17 @@
     "cin": "CIN",
     "confirmPassword": "Confirm Password"
    }
+,
+
+   "error": {
+    "required": "This field is required.",
+    "invalidFullName": "Full name should only contain letters.",
+    "requiredGovernorate": "Please select a governorate.",
+    "invalidPhone": "Phone number should be 8 digits and start with 9, 4, 2, or 5.",
+    "invalidCin": "CIN should be exactly 8 digits.",
+    "invalidEmail": "Please enter a valid email address.",
+    "passwordMinLength": "Password must be at least 12 characters.",
+    "weakPassword": "Password should contain at least one uppercase letter and one number.",
+    "passwordMismatch": "Passwords do not match."
+  }
 }

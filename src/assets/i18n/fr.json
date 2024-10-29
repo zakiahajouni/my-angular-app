@@ -31,5 +31,22 @@
     "phoneNumber": "Numéro de Téléphone",
     "cin": "CIN",
     "confirmPassword": "Confirmer le Mot de Passe"
-   }
+   },
+
+
+
+    "error": {
+      "required": "Ce champ est obligatoire.",
+      "invalidFullName": "Le nom complet doit uniquement contenir des lettres.",
+      "requiredGovernorate": "Veuillez sélectionner un gouvernorat.",
+      "invalidPhone": "Le numéro de téléphone doit contenir 8 chiffres et commencer par 9, 4, 2 ou 5.",
+      "invalidCin": "Le CIN doit contenir exactement 8 chiffres.",
+      "invalidEmail": "Veuillez saisir une adresse e-mail valide.",
+      "passwordMinLength": "Le mot de passe doit contenir au moins 12 caractères.",
+      "weakPassword": "Le mot de passe doit contenir au moins une lettre majuscule et un chiffre.",
+      "passwordMismatch": "Les mots de passe ne correspondent pas."
+    }
+
+
+
 }
