@@ -1,0 +1,113 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <mat-card class="sign-up-card">
+    <mat-tab-group class="tab-group">
+      <!-- Personal Information Tab -->
+      <mat-tab label="{{ translate('signup.personalInfo') }}">
+        <form [formGroup]="signUpForm">
+
+             <!-- CIN Field -->
+             <mat-form-field appearance="outline" class="full-width top-margin">
+              <mat-label>{{ translate('signup.cin') }}</mat-label>
+              <input matInput type="text" formControlName="cin">
+              <mat-error *ngIf="signUpForm.get('cin')?.hasError('required')">
+                {{ translate('error.required') }}
+              </mat-error>
+              <mat-error *ngIf="signUpForm.get('cin')?.hasError('pattern')">
+                {{ translate('error.invalidCin') }}
+              </mat-error>
+            </mat-form-field>
+          <!-- Full Name Field -->
+          <mat-form-field appearance="outline" class="full-width ">
+            <mat-label>{{ translate('signup.fullName') }}</mat-label>
+            <input matInput type="text" placeholder="{{ translate('signup.nameEnter') }}" formControlName="fullName">
+            <mat-error *ngIf="signUpForm.get('fullName')?.hasError('required')">
+              {{ translate('error.required') }}
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('fullName')?.hasError('pattern')">
+              {{ translate('error.invalidFullName') }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Governorate Field with Autocomplete -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('signup.governorate') }}</mat-label>
+            <input type="text" matInput [matAutocomplete]="auto" formControlName="governorate" placeholder="{{ translate('signup.governorate') }}">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let governorate of filteredGovernorates | async" [value]="governorate">
+                {{ governorate }}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="signUpForm.get('governorate')?.hasError('required')">
+              {{ translate('error.requiredGovernorate') }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Phone Number Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('signup.phoneNumber') }}</mat-label>
+            <input matInput type="tel" formControlName="phoneNumber">
+            <mat-error *ngIf="signUpForm.get('phoneNumber')?.hasError('required')">
+              {{ translate('error.required') }}
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('phoneNumber')?.hasError('pattern')">
+              {{ translate('error.invalidPhone') }}
+            </mat-error>
+          </mat-form-field>
+
+
+        </form>
+      </mat-tab>
+
+      <!-- Account Information Tab -->
+      <mat-tab label="{{ translate('signup.accountInfo') }}">
+        <form [formGroup]="signUpForm">
+          <!-- Email Field -->
+          <mat-form-field appearance="outline" class="full-width top-margin">
+            <mat-label>{{ translate('login.email') }}</mat-label>
+            <input matInput type="email" formControlName="email">
+            <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">
+              {{ translate('error.required') }}
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('email')?.hasError('email')">
+              {{ translate('error.invalidEmail') }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Password Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('login.password') }}</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">
+              {{ translate('error.required') }}
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('password')?.hasError('minlength')">
+              {{ translate('error.passwordMinLength') }}
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('password')?.hasError('pattern')">
+              {{ translate('error.weakPassword') }}
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Confirm Password Field -->
+    <!-- Confirm Password Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ translate('signup.confirmPassword') }}</mat-label>
+            <input matInput type="password" formControlName="confirmPassword">
+            <mat-error *ngIf="signUpForm.get('confirmPassword')?.hasError('required')">
+              {{ translate('error.required') }}
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('confirmPassword')?.hasError('passwordMismatch')">
+              {{ translate('error.passwordMismatch') }}
+            </mat-error>
+          </mat-form-field>
+
+
+
+          <button mat-raised-button class="button" [disabled]="signUpForm.invalid">{{ translate('signup.createAccount') }}</button>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>
