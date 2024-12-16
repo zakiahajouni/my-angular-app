@@ -1,0 +1,111 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<div class="layout">
+    <!-- Sidebar -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Title -->
+      <p class="navbar-logo">{{ translate('sidebar.EasyConnect') }}</p>
+<br>        <!-- Sidebar Menu -->
+      <ul>
+        <li onclick="window.location.href='/dashboard';" style="cursor: pointer;">
+          <i class="fas fa-tachometer-alt"></i>{{ translate('sidebar.dashboard') }}</li>
+        <li onclick="window.location.href='/listCategorie';" style="cursor: pointer;">
+          <i class="fas fa-th-list"></i> {{ translate('sidebar.Categories') }}
+        </li>
+        <li onclick="window.location.href='/listSousCategorie';" style="cursor: pointer;">
+          <i class="fas fa-stream"></i> {{ translate('sidebar.Sub-categories') }}</li>
+          <li onclick="window.location.href='/listServiceClient';" style="cursor: pointer;">
+            <i class="fas fa-concierge-bell"></i> {{ translate('sidebar.Services') }}</li>
+            <li onclick="window.location.href='/listProfessional';" style="cursor: pointer;">
+              <i class="fas fa-user-tie"></i>{{ translate('sidebar.Professionals') }} </li>
+              <li onclick="window.location.href='/listRequest';" style="cursor: pointer;">
+                <i class="fas fa-tasks"></i>{{ translate('sidebar.Requests') }} </li>
+        <li><i class="fas fa-sign-out-alt"></i> {{ translate('sidebar.Logout') }}</li>
+      </ul>
+    </div>
+  
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="content-card">
+            <div class="card-header">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <h2>{{ translate('listSousCategory.title') }}</h2>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+<!-- Search Input with Button Icon -->
+<div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; overflow: hidden;">
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Search..."
+    style="border: none; padding: 8px; flex: 1; outline: none;"
+  />
+  <button
+    type="button"
+    style="background-color: #4DA768; border: none; padding: 8px 12px; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center;"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      width="20px"
+      height="20px"
+    >
+      <path
+        d="M10 2a8 8 0 106.32 13.78l4.71 4.7a1 1 0 001.41-1.41l-4.7-4.71A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"
+      />
+    </svg>
+  </button>
+</div>
+
+                    <!-- Add Button -->
+                    <button   onclick="window.location.href='/addSousCategorie';"
+                    class="add-button">{{ translate('listSousCategory.add') }}</button>
+                  </div>
+                </div>
+              </div>
+              
+  
+          <!-- Category Table -->
+          <div class="table-responsive">
+            <table class="category-table">
+              <thead>
+                <tr>
+                  <th>{{ translate('listSousCategory.id') }}</th>
+                  <th>{{ translate('listSousCategory.nom') }}</th>
+                  <th>{{ translate('listSousCategory.Description') }}</th>
+                  <th>{{ translate('listSousCategory.action') }}</th> 
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <!-- Icône Modifier -->
+                    <button
+                      style="background: none; border: none; cursor: pointer;"
+                      title="Modifier"
+                    >
+                      <i class="fas fa-edit" style="color: black;"></i>
+                    </button>
+                    <!-- Icône Supprimer -->
+                    <button
+                      style="background: none; border: none; cursor: pointer;"
+                      title="Supprimer"
+                    >
+                      <i class="fas fa-trash" style="color: black;"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+

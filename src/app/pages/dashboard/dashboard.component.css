@@ -1,0 +1,175 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  height: 100vh;
+  background-color: #f7f9fc;
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #4DA768;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sidebar ul li {
+  padding: 15px 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background-color: #568364;
+  border-radius: 5px;
+}
+
+.sidebar ul li i {
+  margin-right: 10px;
+  color: white;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f7f9fc;
+}
+
+/* Cards */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  color: #4DA768;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card i {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.card .title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card .value {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card .change {
+  font-size: 14px;
+}
+/* Chart Card */
+.chart-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  width: 300px;
+  margin-left: 12px;
+}
+
+/* Donut Chart */
+.donut-chart {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #8BD59E 0% 60%,      /* Green (Accepté) */
+    #FFD262 60% 80%,    /* Yellow (En cours) */
+    #F04358 80% 100%    /* Red (Rejeté) */
+  );
+  margin: 0 auto;
+}
+
+/* Center of the Donut Chart */
+.donut-chart::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Legend Section */
+.legend {
+  margin-top: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.color-box {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border-radius: 3px;
+}
+
+.color-box.green {
+  background-color: #8BD59E; /* Green */
+}
+
+.color-box.blue {
+  background-color: #FFD262; /* Yellow */
+}
+
+.color-box.red {
+  background-color: #F04358; /* Red */
+}

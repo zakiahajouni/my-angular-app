@@ -1,0 +1,74 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<div class="layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar Title -->
+        <p class="navbar-logo">{{ translate('sidebar.EasyConnect') }}</p>
+        <br>
+        <!-- Sidebar Menu -->
+        <ul>
+            <li onclick="window.location.href='/dashboard';" style="cursor: pointer;">
+                <i class="fas fa-tachometer-alt"></i>{{ translate('sidebar.dashboard') }}</li>
+            <li onclick="window.location.href='/listCategorie';" style="cursor: pointer;">
+                <i class="fas fa-th-list"></i> {{ translate('sidebar.Categories') }}
+            </li>
+            <li onclick="window.location.href='/listSousCategorie';" style="cursor: pointer;">
+                <i class="fas fa-stream"></i> {{ translate('sidebar.Sub-categories') }}</li>
+            <li onclick="window.location.href='/listServiceClient';" style="cursor: pointer;">
+                <i class="fas fa-concierge-bell"></i> {{ translate('sidebar.Services') }}</li>
+            <li onclick="window.location.href='/listProfessional';" style="cursor: pointer;">
+                <i class="fas fa-user-tie"></i>{{ translate('sidebar.Professionals') }} </li>
+            <li onclick="window.location.href='/listRequest';" style="cursor: pointer;">
+                <i class="fas fa-tasks"></i>{{ translate('sidebar.Requests') }} </li>
+            <li><i class="fas fa-sign-out-alt"></i> {{ translate('sidebar.Logout') }}</li>
+        </ul>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="stats-container">
+            <!-- Existing Cards -->
+            <div class="card">
+                <i class="fas fa-th-list"></i>
+                <div class="title"> {{ translate('sidebar.Categories') }}</div>
+                <div class="value">750,00</div>
+            </div>
+            <div class="card">
+                <i class="fas fa-stream"></i>
+                <div class="title">{{ translate('sidebar.Sub-categories') }}</div>
+                <div class="value">215</div>
+            </div>
+            <div class="card">
+                <i class="fas fa-concierge-bell"></i>
+                <div class="title">{{ translate('sidebar.Services') }}</div>
+                <div class="value">1400</div>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-tie"></i>
+                <div class="title">{{ translate('sidebar.Professionals') }}</div>
+                <div class="value">95%</div>
+            </div>
+        </div>
+<!-- New Card with Pie Chart -->
+<!-- New Card with Donut Chart -->
+<div class="chart-card">
+    <h3>Request Status Distribution</h3>
+    <div class="donut-chart"></div>
+    <!-- Legend -->
+    <div class="legend">
+        <div class="legend-item">
+            <span class="color-box green"></span> Accepted
+        </div>
+        <div class="legend-item">
+            <span class="color-box blue"></span>In progress
+        </div>
+        <div class="legend-item">
+            <span class="color-box red"></span> Rejected
+        </div>
+    </div>
+</div>
+
+
+    </div>
+    
+    
+</div>
