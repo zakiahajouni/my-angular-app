@@ -1,41 +1,43 @@
-<!-- src/app/pages/accueil/accueil.component.html -->
 <app-navbar></app-navbar>
-<div class="accueil-container">
-  <div class="image-container">
-    <img src="./assets/img/Live collaboration-rafiki.png" alt="Live collaboration-rafiki" height="500">
-  </div>
-  <div class="text-container">
-    <h1>Welcome to CommunAid</h1>
-    <p>
-      CommunAid is a project dedicated to bringing communities together by providing a platform for collaboration, support, and mutual aid...
-    </p>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <img src="./assets/img/background.jpg" alt="Hero Image" class="hero-image">
+  <div class="hero-overlay">
+    <h1>{{ translate('accueil.welcome') }}</h1>
+    <p>{{ translate('accueil.description') }}</p>
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." />
+      <button>{{ translate('accueil.search') }}</button>
+    </div>
   </div>
 </div>
 
-<!-- New Cards Section -->
-<div class="cards-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="./assets/img/card1.jpg" alt="Card 1">
-      <div class="card-overlay">
-        <p>Card 1 Description</p>
-      </div>
-    </div>
+<!-- Statistics Section -->
+<div class="statistics-section">
+  <div class="stat-card">
+    <h3>100+</h3>
+    <p>{{ translate('accueil.stat_providers') }}</p>
   </div>
-  <div class="card">
-    <div class="card-image">
-      <img src="./assets/img/card2.jpg" alt="Card 2">
-      <div class="card-overlay">
-        <p>Card 2 Description</p>
-      </div>
-    </div>
+  <div class="stat-card">
+    <h3>200+</h3>
+    <p>{{ translate('accueil.stat_clients') }}</p>
   </div>
-  <div class="card">
-    <div class="card-image">
-      <img src="./assets/img/card3.jpg" alt="Card 3">
-      <div class="card-overlay">
-        <p>Card 3 Description</p>
+  <div class="stat-card">
+    <h3>300+</h3>
+    <p>{{ translate('accueil.stat_projects') }}</p>
+  </div>
+</div>
+
+
+<!-- New Announcements Section -->
+<div class="annonces-wrapper">
+  <div class="row">
+   <div class="column">
+      <div class="card">
+        <h3>title</h3>
+        <p>title</p>
       </div>
-    </div>
+    </div> 
   </div>
 </div>

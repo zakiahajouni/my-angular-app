@@ -44,5 +44,156 @@
     "passwordMinLength": "Password must be at least 12 characters.",
     "weakPassword": "Password should contain at least one uppercase letter and one number.",
     "passwordMismatch": "Passwords do not match."
-  }
+  },
+
+
+  "accueil": {
+    "welcome": "Welcome to CommunAid.",
+    "description": "CommunAid is a project dedicated to bringing communities together by providing a platform for collaboration, support, and mutual aid..."    
+  },
+  "sidebar":{
+    "EasyConnect": "EasyConnect",  
+    "dashboard": "Dashboard",
+    "Categories": "Categories",
+    "Sub-categories": "Sub-categories",
+    "Services": "Services",
+    "Professionals": "Professionals",
+    "Requests": "Requests",
+    "Logout": "Logout"
+ },
+ "listCategory":{
+  "title": "List of categories",
+  "add": "Add Category",
+  "id":"ID",
+  "nom":"Name",
+  "Description":"Description",
+  "action":"Action"
+ },
+ "addCategory":{
+  "title":"Add Category",
+  "name":"Category Name",
+  "description":"Category Description",
+  "enterName":"Enter category name",
+  "enterDescription":"Enter category description",
+  "save":"Save category",
+  "cancel":"Cancel"
+ },
+ "modifyCategory":{
+  "title":"Modify Category",
+  "name":"Category Name",
+  "description":"Category Description",
+  "enterName":"Enter category name",
+  "enterDescription":"Enter category description",
+  "save":"Save category",
+  "cancel":"Cancel"
+ },
+
+ "listSousCategory":{
+  "title": "List of subcategories",
+  "add": "Add Subcategory",
+  "id":"ID",
+  "nom":"Name",
+  "Description":"Description",
+  "action":"Action"
+ },
+ "addSousCategory":{
+  "title":"Add Subcategory",
+  "name":"Subcategory Name",
+  "description":"Subcategory Description",
+  "enterName":"Enter subcategory name",
+  "enterDescription":"Enter subcategory description",
+  "save":"Save subcategory",
+  "cancel":"Cancel"
+ },
+ "modifySousCategory":{
+  "title":"Modify Subcategory",
+  "name":"Subcategory Name",
+  "description":"Subcategory Description",
+  "enterName":"Enter subcategory name",
+  "enterDescription":"Enter subcategory description",
+  "save":"Save subcategory",
+  "cancel":"Cancel"
+ },
+ "listServiceClient":{
+  "title": "List of customer services",
+  "add": "Add Service",
+  "id":"ID",
+  "nom":"Name",
+  "adresse":"Address",
+  "prix":"Price",
+  "disponibilite":"Availability",
+  "description":"Description",
+  "sousCategorie":"Subcategory",
+  "action":"Action"
+ },
+ "addServiceClient":{
+  "title":"Add Service Client",
+  "name":"Name",
+  "enterName":"Enter Service Client Name",
+  "price":"Price",
+  "enterPrice":"Enter price",
+  "availability":"Availability",
+  "available":"Available",
+  "unavailable":"Unavailable",
+  "address":"Address",
+  "selectCity":"Select an address",
+  "subcategory":"Subcategory",
+  "selectSubcategory":"Select a subcategory",
+  "description":"Description",
+  "enterDescription":"Enter description",
+
+  "save":"Save service",
+  "cancel":"Cancel"
+ },
+ "modifyServiceClient":{
+  "title":"Modify Service Client"
+ },
+ "listProfessional":{
+  "title": "List of professionals",
+  "add": "Add Professional",
+  "id":"ID",
+  "nom":"Full name",
+  "telephone":"Phone number",
+  "adresse":"Address",
+  "experience":"Work Experience",
+  "certification":"Certification",
+  "description":"Description",
+  "sousCategorie":"Subcategory",
+  "action":"Action"
+ },
+ "addProfessional":{
+  "title": "Add professional",
+  "nom":"Full name",
+  "enterName":"Enter Full Name",
+  "telephone":"Phone number",
+  "enterPhone":"Enter Phone Number",
+  "adresse":"Address",
+  "selectCity":"Select an address",
+  "experience":"Work Experience",
+  "enterExperience":"Enter Work Experience",
+  "certification":"Certification",
+  "enterCertification":"Enter Certification",
+  "description":"Description",
+  "enterDescription":"Enter Description",
+  "subcategory":"Subcategory",
+  "selectSubcategory":"Select a subcategory",
+  "save":"Save professional",
+  "cancel":"Cancel"
+ },
+  "modifyProfessional":
+  {
+    "title":"Modify professional"
+   },
+   "listRequest":{
+    "title":"List of requests ",
+    "user":"Customer full name",
+    "serviceClient":"Service",
+    "date":"Date",
+    "adresse":"Full address",
+    "noteSupplementaire":"Notes",
+    "status":"Status",
+    "action":"Action"
+   }
+
+
 }

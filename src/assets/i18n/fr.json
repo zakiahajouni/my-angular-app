@@ -45,7 +45,156 @@
       "passwordMinLength": "Le mot de passe doit contenir au moins 12 caractères.",
       "weakPassword": "Le mot de passe doit contenir au moins une lettre majuscule et un chiffre.",
       "passwordMismatch": "Les mots de passe ne correspondent pas."
-    }
+    },
+
+    "accueil": {
+      "welcome": "Bienvenue à CommunAid.",
+      "description": "CommunAid est un projet visant à rassembler les communautés en fournissant une plateforme de collaboration, de soutien et d'entraide..."    
+    },
+
+    "sidebar":{
+      "dashboard": "Dashboard",
+      "Categories": "Categories",
+      "Sub-categories": "Sub-categories",
+      "Services": "Services",
+      "Professionals": "Professionals",
+      "Requests": "Requests",
+      "Logout": "Logout"
+   },
+
+"listCategory":{
+  "title": "Liste des catégories",
+  "add": "Ajouter Catégorie",
+  "id":"ID",
+  "nom":"Nom",
+  "Description":"Description",
+  "action":"Action"
+ },
+ "addCategory":{
+  "title":"Ajouter catégorie",
+  "name":"Nom catégorie",
+  "description":"Description catégorie",
+  "enterName":"Entrer le nom de catégorie",
+  "enterDescription":"Entrer la description de catégorie",
+  "save":"Enregistrer catégorie",
+  "cancel":"Annuler"
+ },
+ "modifyCategory":{
+  "title":"Modifier catégorie",
+  "name":"Nom catégorie",
+  "description":"Description catégorie",
+  "enterName":"Entrer le nom de catégorie",
+  "enterDescription":"Entrer la description de catégorie",
+  "save":"Enregistrer catégorie",
+  "cancel":"Annuler"
+ },
+
+ "listSousCategory":{
+  "title": "Liste des sous catégories",
+  "add": "Ajouter sous catégorie",
+  "id":"ID",
+  "nom":"Nom",
+  "Description":"Description",
+  "action":"Action"
+ },
+ "addSousCategory":{
+  "title":"Ajouter sous catégorie",
+  "name":"Nom de sous catégorie",
+  "description":"Description de sous catégorie",
+  "enterName":"Entrer le nom de sous catégorie",
+  "enterDescription":"Entrer la description de sous catégorie",
+  "save":"Enregistrer sous catégorie",
+  "cancel":"Annuler"
+ },
+ "modifySousCategory":{
+  "title":"Modifier sous catégorie",
+  "name":"Nom de sous catégorie",
+  "description":"Description de sous catégorie",
+  "enterName":"Entrer le nom de sous catégorie",
+  "enterDescription":"Entrer la description de sous catégorie",
+  "save":"Enregistrer sous catégorie",
+  "cancel":"Annuler"
+ },
+ "listServiceClient":{
+  "title": "Liste des services clients",
+  "add": "Ajouter Service",
+  "id":"ID",
+  "nom":"Nom",
+  "adresse":"Adresse",
+  "prix":"Prix",
+  "disponibilite":"Disponibilité",
+  "description":"Description",
+  "sousCategorie":"Sous catégorie",
+  "action":"Action"
+ },
+ "addServiceClient":{
+  "title":"Ajouter Service Client",
+  "name":"Nom",
+  "enterName":"Entrer le nom de service",
+  "price":"Prix",
+  "enterPrice":"Entrer le prix",
+  "availability":"Disponibilité",
+  "available":"Disponible",
+  "unavailable":"Non disponible",
+  "address":"Adresse",
+  "selectCity":"Sélectionner une Adresse",
+  "subcategory":"Sous catégorie",
+  "selectSubcategory":"Selectionner une sous catégorie",
+  "description":"Description",
+  "enterDescription":"Entrer une description",
+  "save":"Enregistrer le service",
+  "cancel":"Annuler"
+ },
+ "modifyServiceClient":{
+  "title":"Modifier Service Client"
+ },
+ "listProfessional":{
+  "title": "Liste de professionnels",
+  "add": "Ajouter Professionnel",
+  "id":"ID",
+  "nom":"Nom complet",
+  "telephone":"Numéro de téléphone",
+  "adresse":"Adresse",
+  "experience":"Expérience professionnelle",
+  "certification":"Certification",
+  "description":"Description",
+  "sousCategorie":"Sous catégorie",
+  "action":"Action"
+ },
+ "addProfessional":{
+  "title": "Ajouter Professionnel",
+  "nom":"Nom complet",
+  "enterName":"Entrer le nom complet",
+  "telephone":"Numéro de téléphone",
+  "enterPhone":"Entrer le numéro de téléphone",
+  "address":"Adresse",
+  "selectCity":"Sélectionner une Adresse",
+  "experience":"Expérience professionnelle",
+  "enterExperience":"Entrer une Expérience professionnelle",
+  "certification":"Certification",
+  "enterCertification":"Entrer les Certifications",
+  "description":"Description",
+  "enterDescription":"Entrer une Description",
+  "subcategory":"Sous catégorie",
+  "selectSubcategory":"Select a sous catégorie",
+  "save":"Enregistrer professional",
+  "cancel":"Annuler"
+ },
+  "modifyProfessional":
+  {
+    "title":"Modifer Professionnel"
+   },
+   "listRequest":{
+    "title":"Liste des demandes ",
+    "user":"Nom complet de client",
+    "serviceClient":"Service",
+    "date":"Date",
+    "adresse":"Adresse compléte",
+    "noteSupplementaire":"Notes",
+    "status":"Etas",
+    "action":"Action"
+   }
+
 
 
 

@@ -1,0 +1,155 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<div class="layout">
+    <!-- Sidebar -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Title -->
+      <p class="navbar-logo">{{ translate('sidebar.EasyConnect') }}</p>
+<br>        <!-- Sidebar Menu -->
+      <ul>
+        <li onclick="window.location.href='/dashboard';" style="cursor: pointer;">
+          <i class="fas fa-tachometer-alt"></i>{{ translate('sidebar.dashboard') }}</li>
+        <li onclick="window.location.href='/listCategorie';" style="cursor: pointer;">
+          <i class="fas fa-th-list"></i> {{ translate('sidebar.Categories') }}
+        </li>
+        <li onclick="window.location.href='/listSousCategorie';" style="cursor: pointer;">
+          <i class="fas fa-stream"></i> {{ translate('sidebar.Sub-categories') }}</li>
+          <li onclick="window.location.href='/listServiceClient';" style="cursor: pointer;">
+            <i class="fas fa-concierge-bell"></i> {{ translate('sidebar.Services') }}</li>
+            <li onclick="window.location.href='/listProfessional';" style="cursor: pointer;">
+              <i class="fas fa-user-tie"></i>{{ translate('sidebar.Professionals') }} </li>
+              <li onclick="window.location.href='/listRequest';" style="cursor: pointer;">
+                <i class="fas fa-tasks"></i>{{ translate('sidebar.Requests') }} </li>
+        <li><i class="fas fa-sign-out-alt"></i> {{ translate('sidebar.Logout') }}</li>
+      </ul>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="container">
+        <!-- Card -->
+        <div class="sign-up-card">
+          <!-- Title -->
+          <h2 style="text-align: center; display: flex; align-items: center; justify-content: center;">
+            {{ translate('modifyServiceClient.title') }} 
+          </h2>
+  
+          <!-- Form -->
+          <form>
+            <!-- Name Field -->
+            <div class="form-group full-width top-margin">
+              <label for="name" style="font-weight: bold;">{{ translate('addServiceClient.name') }} </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="form-control" 
+                placeholder="{{ translate('addServiceClient.enterName') }}"
+                style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;" />
+            </div>
+
+            <!-- Price Field -->
+            <div class="form-group full-width top-margin">
+              <label for="price" style="font-weight: bold;">{{ translate('addServiceClient.price') }} </label>
+              <input 
+                type="text" 
+                id="price" 
+                name="price" 
+                class="form-control" 
+                placeholder="{{ translate('addServiceClient.enterPrice') }}"
+                style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;" />
+            </div>
+
+<!-- Availability Field -->
+<div class="form-group full-width top-margin">
+  <label for="availability" style="font-weight: bold;">{{ translate('addServiceClient.availability') }}</label>
+  
+  <!-- Radio buttons for availability -->
+  <div style="margin-top: 5px;">
+    <label for="available" style="margin-right: 15px;">
+      <input 
+        type="radio" 
+        id="available" 
+        name="availability" 
+        value="available" 
+        class="form-control" 
+        style="margin-right: 5px;" />
+      {{ translate('addServiceClient.available') }}
+    </label>
+    
+    <label for="unavailable">
+      <input 
+        type="radio" 
+        id="unavailable" 
+        name="availability" 
+        value="unavailable" 
+        class="form-control" 
+        style="margin-right: 5px;" />
+      {{ translate('addServiceClient.unavailable') }}
+    </label>
+  </div>
+</div>
+
+
+            <!-- Address Field -->
+            <div class="form-group full-width top-margin">
+                <label for="address" style="font-weight: bold;">{{ translate('addServiceClient.address') }}</label>
+                <select 
+                  id="address" 
+                  name="address" 
+                  class="form-control" 
+                  style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                  <option value="">{{ translate('addServiceClient.selectCity') }}</option>
+                  <!-- Liste déroulante des villes -->
+                  <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                </select>
+              </div>
+              
+
+            <!-- Subcategory Field -->
+            <div class="form-group full-width top-margin">
+              <label for="subcategory" style="font-weight: bold;">{{ translate('addServiceClient.subcategory') }} </label>
+              <select 
+                id="subcategory" 
+                name="subcategory" 
+                class="form-control" 
+                style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+                <!-- Add options dynamically -->
+                <option value="">{{ translate('addServiceClient.selectSubcategory') }}</option>
+                <!-- Dynamically populate subcategories here -->
+              </select>
+            </div>
+
+            <!-- Description Field -->
+            <div class="form-group full-width top-margin">
+              <label for="description" style="font-weight: bold;">{{ translate('addServiceClient.description') }}</label>
+              <textarea 
+                id="description" 
+                name="description" 
+                class="form-control" 
+                rows="4" 
+                placeholder="{{ translate('addServiceClient.enterDescription') }}"
+                style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+            </div>
+
+            <!-- Submit and Cancel Buttons -->
+            <div class="button-container">
+              <button 
+                type="button" 
+                class="cancel-button" 
+                [routerLink]="['/listCategorie']">
+                {{ translate('addServiceClient.cancel') }}
+              </button>
+
+              <button 
+                type="submit" 
+                class="submit-button">
+                {{ translate('addServiceClient.save') }}
+              </button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
