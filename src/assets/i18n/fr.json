@@ -49,7 +49,7 @@
 
     "accueil": {
       "welcome": "Bienvenue à CommunAid.",
-      "description": "CommunAid est un projet visant à rassembler les communautés en fournissant une plateforme de collaboration, de soutien et d'entraide..."    
+      "description": "CommunAid est un projet visant à rassembler les communautés en fournissant une plateforme de collaboration, de soutien et d'entraide..."
     },
 
     "sidebar":{
@@ -63,6 +63,7 @@
    },
 
 "listCategory":{
+  "noData":"Pas de catégories",
   "title": "Liste des catégories",
   "add": "Ajouter Catégorie",
   "id":"ID",

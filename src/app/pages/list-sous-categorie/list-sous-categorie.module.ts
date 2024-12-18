@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ListSousCategorieRoutingModule } from './list-sous-categorie-routing.module';
 import { ListSousCategorieComponent } from './list-sous-categorie.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     ListSousCategorieRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class ListSousCategorieModule { }

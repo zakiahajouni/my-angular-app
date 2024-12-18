@@ -23,7 +23,7 @@
         <li><i class="fas fa-sign-out-alt"></i> {{ translate('sidebar.Logout') }}</li>
       </ul>
     </div>
-  
+
     <!-- Main Content -->
     <main class="main-content">
       <div class="container">
@@ -66,8 +66,8 @@
                   </div>
                 </div>
               </div>
-              
-  
+
+
           <!-- Category Table -->
           <div class="table-responsive">
             <table class="category-table">
@@ -76,33 +76,41 @@
                   <th>{{ translate('listSousCategory.id') }}</th>
                   <th>{{ translate('listSousCategory.nom') }}</th>
                   <th>{{ translate('listSousCategory.Description') }}</th>
-                  <th>{{ translate('listSousCategory.action') }}</th> 
+                  <th>{{ translate('addCategory.name') }}</th>
+                  <th>{{ translate('listSousCategory.action') }}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td></td>
-                  <td></td>
+                <tr *ngFor="let subCategory of filteredSubCategories">
+                  <td>{{ subCategory.id }}</td>
+                  <td>{{ subCategory.nom }}</td>
+                  <td>{{ subCategory.description }}</td>
+                  <td>{{ subCategory.categorie?.nom || 'No Category' }}</td> <!-- Display Category Name -->
                   <td>
-                    <!-- Icône Modifier -->
+                    <!-- Edit Button -->
+                                    <button
+                    style="background: none; border: none; cursor: pointer;"
+                    title="Edit"
+                    [routerLink]="['/modifySousCategorie', subCategory.id]"
+                  >
+                    <i class="fas fa-edit" style="color: black;"></i>
+                  </button>
+                    <!-- Delete Button -->
                     <button
                       style="background: none; border: none; cursor: pointer;"
-                      title="Modifier"
+                      title="Delete"
+                      (click)="deleteSubCategory(subCategory.id)"
                     >
-                      <i class="fas fa-edit" style="color: black;"></i>
-                    </button>
-                    <!-- Icône Supprimer -->
-                    <button
-                      style="background: none; border: none; cursor: pointer;"
-                      title="Supprimer"
-                    >
-                      <i class="fas fa-trash" style="color: black;"></i>
+                      <i class="fas fa-trash" style="color: red;"></i>
                     </button>
                   </td>
                 </tr>
+                <tr *ngIf="filteredSubCategories.length === 0">
+                  <td colspan="5" style="text-align: center;">No subcategories found</td>
+                </tr>
               </tbody>
             </table>
+
           </div>
         </div>
       </div>

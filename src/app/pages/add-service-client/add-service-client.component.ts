@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslationService } from 'src/app/translation.service';
 import { HttpClient } from '@angular/common/http';
+import { SubCategoriesService } from 'src/app/services/SubCategoriesServices/sub-categories.service';
+import { ServiceCustomerService } from 'src/app/services/ServiceCustomerService/service-customer.service';
+import { Router } from '@angular/router';
+import { ServiceCustomer } from 'src/app/models/ServiceCustomer';
 
 @Component({
   selector: 'app-add-service-client',
@@ -8,39 +12,49 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./add-service-client.component.css']
 })
 export class AddServiceClientComponent implements OnInit {
-  cities: string[] = [];  // Tableau pour stocker les villes
+  cities: string[] = [];
+  subcategories: any[] = [];
+  serviceCustomers: ServiceCustomer = new ServiceCustomer();
 
 
-  currentLang: string;
-
-
-
-  constructor(private translationService: TranslationService, private http: HttpClient) {
-    this.currentLang = 'en';
-
-  }
+  constructor(
+    private translationService: TranslationService,
+    private http: HttpClient,
+    private subCategoriesService: SubCategoriesService,
+    private serviceCustomerService: ServiceCustomerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    // Récupération du fichier JSON contenant les villes
+    this.loadCities();
+    this.loadSubcategories();
+  }
+
+  loadCities(): void {
     this.http.get<string[]>('assets/cities.json').subscribe(
-      (data) => {
-        this.cities = data;  // Assigner la liste des villes
-      },
-      (error) => {
-        console.error('Erreur lors du chargement des villes :', error);
-      }
+      (data) => (this.cities = data),
+      (error) => console.error('Error loading cities:', error)
     );
   }
 
-  changeLanguage(event: Event) {
-    const selectElement = event.target as HTMLSelectElement; // Type assertion
-    const lang = selectElement.value; // Get the value of the selected option
-    this.currentLang = lang;
-    this.translationService.changeLanguage(lang);
+  loadSubcategories(): void {
+    this.subCategoriesService.getAllSubCtegories().subscribe(
+      (data) => (this.subcategories = data),
+      (error) => console.error('Error loading subcategories:', error)
+    );
+  }
+
+  onSubmit(): void {
+    this.serviceCustomerService.addServiceClient(this.serviceCustomers).subscribe(
+      () => {
+        alert('Service Client added successfully!');
+        this.router.navigate(['/listServiceClient']);
+      },
+      (error) => console.error('Error adding service client:', error)
+    );
   }
 
   translate(key: string) {
     return this.translationService.translate(key);
   }
-
 }

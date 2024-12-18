@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ModifyServiceClientRoutingModule } from './modify-service-client-routing.module';
 import { ModifyServiceClientComponent } from './modify-service-client.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     ModifyServiceClientRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class ModifyServiceClientModule { }

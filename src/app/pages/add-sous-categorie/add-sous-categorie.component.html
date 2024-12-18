@@ -23,7 +23,7 @@
         <li><i class="fas fa-sign-out-alt"></i> {{ translate('sidebar.Logout') }}</li>
       </ul>
     </div>
-  
+
     <!-- Main Content -->
     <div class="main-content">
       <div class="container">
@@ -31,53 +31,75 @@
         <div class="sign-up-card">
           <!-- Title -->
           <h2 style="text-align: center; display: flex; align-items: center; justify-content: center;">
-            {{ translate('addSousCategory.title') }} 
+            {{ translate('addSousCategory.title') }}
           </h2>
-  
+
           <!-- Form -->
-          <form>
+          <form (ngSubmit)="onSubmit()">
             <!-- Nom Field -->
             <div class="form-group full-width top-margin">
               <label for="nom" style="font-weight: bold;">{{ translate('addSousCategory.name') }} </label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                class="form-control" 
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                [(ngModel)]="sousCategorie.nom"
+
                 placeholder="{{ translate('addSousCategory.enterName') }}"
                 style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;" />
             </div>
-  
+
             <!-- Description Field -->
             <div class="form-group full-width top-margin">
               <label for="description" style="font-weight: bold;">{{ translate('addSousCategory.description') }}</label>
-              <textarea 
-                id="description" 
-                name="description" 
-                class="form-control" 
-                rows="4" 
+              <textarea
+                id="description"
+                name="description"
+                class="form-control"
+                rows="4"
+                [(ngModel)]="sousCategorie.description"
+
                 placeholder="{{ translate('addSousCategory.enterDescription') }}"
                 style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
             </div>
-  
+
+          <!-- Category Select Field -->
+<div class="form-group full-width top-margin">
+  <label for="category" style="font-weight: bold;">{{ translate('addCategory.name') }}</label>
+  <select
+    id="category"
+    name="category"
+    class="form-control"
+    [(ngModel)]="sousCategorie.categorie"
+    style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
+    <option [ngValue]="null" disabled>{{ translate('addCategory.name') }}</option>
+    <option *ngFor="let category of categories" [ngValue]="category">
+      {{ category.nom }}
+    </option>
+  </select>
+</div>
+
+
+
+
 <!-- Submit and Cancel Buttons -->
 <div class="button-container">
-  <button 
-  type="button" 
-  class="cancel-button" 
+  <button
+  type="button"
+  class="cancel-button"
   [routerLink]="['/listSousCategorie']">
   {{ translate('addSousCategory.cancel') }}
 </button>
 
-    <button 
-      type="submit" 
+    <button
+      type="submit"
       class="submit-button">
       {{ translate('addSousCategory.save') }}     </button>
   </div>
-  
+
           </form>
         </div>
       </div>
     </div>
   </div>
-  

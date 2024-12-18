@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AddCategorieRoutingModule } from './add-categorie-routing.module';
 import { AddCategorieComponent } from './add-categorie.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     AddCategorieRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class AddCategorieModule { }

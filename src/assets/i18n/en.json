@@ -49,10 +49,10 @@
 
   "accueil": {
     "welcome": "Welcome to CommunAid.",
-    "description": "CommunAid is a project dedicated to bringing communities together by providing a platform for collaboration, support, and mutual aid..."    
+    "description": "CommunAid is a project dedicated to bringing communities together by providing a platform for collaboration, support, and mutual aid..."
   },
   "sidebar":{
-    "EasyConnect": "EasyConnect",  
+    "EasyConnect": "EasyConnect",
     "dashboard": "Dashboard",
     "Categories": "Categories",
     "Sub-categories": "Sub-categories",
@@ -67,7 +67,8 @@
   "id":"ID",
   "nom":"Name",
   "Description":"Description",
-  "action":"Action"
+  "action":"Action",
+  "noData":"Pas de catégories"
  },
  "addCategory":{
   "title":"Add Category",
