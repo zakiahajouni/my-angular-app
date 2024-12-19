@@ -1,35 +1,58 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  rel="stylesheet"
+/>
 <div class="layout">
-    <!-- Sidebar -->
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar Title -->
-      <p class="navbar-logo">{{ translate('sidebar.EasyConnect') }}</p>
-<br>        <!-- Sidebar Menu -->
-      <ul>
-        <li onclick="window.location.href='/dashboard';" style="cursor: pointer;">
-          <i class="fas fa-tachometer-alt"></i>{{ translate('sidebar.dashboard') }}</li>
-        <li onclick="window.location.href='/listCategorie';" style="cursor: pointer;">
-          <i class="fas fa-th-list"></i> {{ translate('sidebar.Categories') }}
-        </li>
-        <li onclick="window.location.href='/listSousCategorie';" style="cursor: pointer;">
-          <i class="fas fa-stream"></i> {{ translate('sidebar.Sub-categories') }}</li>
-          <li onclick="window.location.href='/listServiceClient';" style="cursor: pointer;">
-            <i class="fas fa-concierge-bell"></i> {{ translate('sidebar.Services') }}</li>
-            <li onclick="window.location.href='/listProfessional';" style="cursor: pointer;">
-              <i class="fas fa-user-tie"></i>{{ translate('sidebar.Professionals') }} </li>
-              <li onclick="window.location.href='/listRequest';" style="cursor: pointer;">
-                <i class="fas fa-tasks"></i>{{ translate('sidebar.Requests') }} </li>
-        <li><i class="fas fa-sign-out-alt"></i> {{ translate('sidebar.Logout') }}</li>
-      </ul>
-    </div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <p class="navbar-logo">{{ translate('sidebar.EasyConnect') }}</p>
+    <ul>
+      <li onclick="window.location.href='/dashboard';" style="cursor: pointer;">
+        <i class="fas fa-tachometer-alt"></i>{{ translate('sidebar.dashboard') }}
+      </li>
+      <li onclick="window.location.href='/listCategorie';" style="cursor: pointer;">
+        <i class="fas fa-th-list"></i>{{ translate('sidebar.Categories') }}
+      </li>
+      <li onclick="window.location.href='/listSousCategorie';" style="cursor: pointer;">
+        <i class="fas fa-stream"></i>{{ translate('sidebar.Sub-categories') }}
+      </li>
+      <li onclick="window.location.href='/listServiceClient';" style="cursor: pointer;">
+        <i class="fas fa-concierge-bell"></i>{{ translate('sidebar.Services') }}
+      </li>
+      <li onclick="window.location.href='/listProfessional';" style="cursor: pointer;">
+        <i class="fas fa-user-tie"></i>{{ translate('sidebar.Professionals') }}
+      </li>
+      <li onclick="window.location.href='/listRequest';" style="cursor: pointer;">
+        <i class="fas fa-tasks"></i>{{ translate('sidebar.Requests') }}
+      </li>
+      <li><i class="fas fa-sign-out-alt"></i>{{ translate('sidebar.Logout') }}</li>
+    </ul>
+  </div>
 
-    <main class="main-content">
-      <div class="container">
-        <div class="content-card">
-          <div class="card-header">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <h2>{{ translate('listProfessional.title') }}</h2>
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <div class="content-card">
+        <div class="card-header">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>{{ translate('listProfessional.title') }}</h2>
+               <!-- Search Input -->
+               <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; overflow: hidden;">
+                <input
+                  type="text"
+                  [(ngModel)]="searchText"
+                  (input)="filterProfessionals()"
+                  placeholder="Search..."
+                  style="border: none; padding: 8px; flex: 1; outline: none;"
+                />
+                <button
+                  type="button"
+                  style="background-color: #4DA768; border: none; padding: 8px 12px; color: white; cursor: pointer;"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+
               <button
                 onclick="window.location.href='/addProfessional';"
                 class="add-button"
@@ -39,56 +62,54 @@
             </div>
           </div>
 
-          <!-- Professionals Table -->
-          <div class="table-responsive">
-            <table class="category-table">
-              <thead>
-                <tr>
-                  <th>{{ translate('listProfessional.nom') }}</th>
-                  <th>{{ translate('listProfessional.telephone') }}</th>
-                  <th>{{ translate('listProfessional.adresse') }}</th>
-                  <th>{{ translate('listProfessional.experience') }}</th>
-                  <th>{{ translate('listProfessional.certification') }}</th>
-                  <th>{{ translate('listProfessional.sousCategorie') }}</th>
-                  <th>{{ translate('listProfessional.description') }}</th>
-                  <th>{{ translate('listProfessional.action') }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let professional of professionals">
-                  <td>{{ professional.nom }}</td>
-                  <td>{{ professional.telephone }}</td>
-                  <td>{{ professional.adresse }}</td>
-                  <td>{{ professional.experience }}</td>
-                  <td>{{ professional.certification }}</td>
-                  <td>{{ professional.sousCategorie?.nom || 'N/A' }}</td>
-                  <td>{{ professional.description }}</td>
-                  <td>
-                    <!-- Edit Button -->
-                    <button
-                      style="background: none; border: none; cursor: pointer;"
-                      title="Edit"
-                      onclick="window.location.href='/editProfessional/' + professional.id"
-                    >
-                      <i class="fas fa-edit" style="color: black;"></i>
-                    </button>
-                    <!-- Delete Button -->
-                    <button
-                      style="background: none; border: none; cursor: pointer;"
-                      title="Delete"
-                      (click)="deleteProfessional(professional.id)"
-                    >
-                      <i class="fas fa-trash" style="color: red;"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr *ngIf="professionals.length === 0">
-                  <td colspan="8" style="text-align: center;">No professionals found</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <!-- Professionals Table -->
+        <div class="table-responsive">
+          <table class="category-table">
+            <thead>
+              <tr>
+                <th>{{ translate('listProfessional.nom') }}</th>
+                <th>{{ translate('listProfessional.telephone') }}</th>
+                <th>{{ translate('listProfessional.adresse') }}</th>
+                <th>{{ translate('listProfessional.experience') }}</th>
+                <th>{{ translate('listProfessional.certification') }}</th>
+                <th>{{ translate('listProfessional.sousCategorie') }}</th>
+                <th>{{ translate('listProfessional.description') }}</th>
+                <th>{{ translate('listProfessional.action') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let professional of filteredProfessionals">
+                <td>{{ professional.nomComplet }}</td>
+                <td>{{ professional.telephone }}</td>
+                <td>{{ professional.adresse }}</td>
+                <td>{{ professional.experience }}</td>
+                <td>{{ professional.certification }}</td>
+                <td>{{ professional.sousCategorie?.nom || 'N/A' }}</td>
+                <td>{{ professional.description }}</td>
+                <td>
+                  <button
+                    style="background: none; border: none; cursor: pointer;"
+                    title="Edit"
+                    [routerLink]="['/modifyProfessional', professional.id]"
+                  >
+                    <i class="fas fa-edit" style="color: black;"></i>
+                  </button>
+                  <button
+                    style="background: none; border: none; cursor: pointer;"
+                    title="Delete"
+                    (click)="deleteProfessional(professional.id)"
+                  >
+                    <i class="fas fa-trash" style="color: red;"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="filteredProfessionals.length === 0">
+                <td colspan="8" style="text-align: center;">{{ translate('listProfessional.noData') }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
+</div>

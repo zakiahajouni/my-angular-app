@@ -27,89 +27,113 @@
     <main class="main-content">
       <div class="container">
         <div class="content-card">
-            <div class="card-header">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <h2>{{ translate('listRequest.title') }}</h2>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 10px;">
-<!-- Search Input with Button Icon -->
-<div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; overflow: hidden;">
-  <input
-    type="text"
-    class="search-input"
-    placeholder="Search..."
-    style="border: none; padding: 8px; flex: 1; outline: none;"
-  />
-  <button
-    type="button"
-    style="background-color: #4DA768; border: none; padding: 8px 12px; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center;"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      width="20px"
-      height="20px"
-    >
-      <path
-        d="M10 2a8 8 0 106.32 13.78l4.71 4.7a1 1 0 001.41-1.41l-4.7-4.71A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"
-      />
-    </svg>
-  </button>
-</div>
-                  </div>
-                </div>
+          <div class="card-header">
+            <h2>{{ translate('listRequest.title') }}</h2>
+            <div style="display: flex; gap: 10px;">
+              <!-- Filter by Date -->
+              <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; overflow: hidden;">
+                <input
+                type="date"
+                [(ngModel)]="filterDate"
+                (input)="filterDemandes()"
+                placeholder="Search by date"
+                style="border: none; padding: 8px; flex: 1; outline: none;"
+              />
+
+                <button
+                  type="button"
+                  style="background-color: #4DA768; border: none; padding: 8px 12px; color: white; cursor: pointer;"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
               </div>
-              
-  
-          <!--request Table -->
+
+              <!-- Filter by Address -->
+              <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; overflow: hidden;">
+                <input
+                  type="text"
+                  [(ngModel)]="filterAddress"
+                  (input)="filterDemandes()"
+                  placeholder="Search by address"
+                  style="border: none; padding: 8px; flex: 1; outline: none;"
+                />
+                <button
+                  type="button"
+                  style="background-color: #4DA768; border: none; padding: 8px 12px; color: white; cursor: pointer;"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Demandes Table -->
           <div class="table-responsive">
             <table class="category-table">
               <thead>
                 <tr>
                   <th>{{ translate('listRequest.user') }}</th>
-                  <th>{{ translate('listRequest.serviceClient') }}</th> 
+                  <th>{{ translate('listRequest.serviceClient') }}</th>
                   <th>{{ translate('listRequest.date') }}</th>
-                  <th>{{ translate('listRequest.adresse') }}</th> 
-                  <th>{{ translate('listRequest.noteSupplementaire') }}</th> 
-                  <th>{{ translate('listRequest.status') }}</th> 
-                  <th>{{ translate('listRequest.action') }}</th> 
-
+                  <th>{{ translate('listRequest.adresse') }}</th>
+                  <th>{{ translate('listRequest.noteSupplementaire') }}</th>
+                  <th>{{ translate('listRequest.status') }}</th>
+                  <th>{{ translate('listRequest.action') }}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-
+                <tr *ngFor="let demande of filteredDemandes">
+                  <td>{{ demande.clientName || 'N/A' }}</td>
+                  <td>{{ demande.serviceClient?.nom || 'N/A' }}</td>
+                  <td>{{ demande.date }}</td>
+                  <td>{{ demande.adresse }}</td>
+                  <td>{{ demande.noteSupplementaire }}</td>
+                  <td>{{ demande.status }}</td>
                   <td>
-                    <!-- Icône Accepter -->
+                    <ng-container *ngIf="demande.status === 'En cours'">
+                      <!-- Accept Button -->
+                      <button
+                        style="background: none; border: none; cursor: pointer;"
+                        title="Accept"
+                        (click)="accepterDemande(demande.id)"
+                      >
+                        <i class="fas fa-check" style="color: green;"></i>
+                      </button>
+                      <!-- Refuse Button -->
+                      <button
+                        style="background: none; border: none; cursor: pointer;"
+                        title="Reject"
+                        (click)="refuserDemande(demande.id)"
+                      >
+                        <i class="fas fa-times" style="color: red;"></i>
+                      </button>
+                    </ng-container>
+                    <ng-container *ngIf="demande.status === 'Validée'">
+                      <span style="color: green; font-weight: bold;">Demande validée</span>
+                    </ng-container>
+                    <ng-container *ngIf="demande.status === 'Refusée'">
+                      <span style="color: red; font-weight: bold;">Demande refusée</span>
+                    </ng-container>
+                    <!-- View Details Button -->
                     <button
                       style="background: none; border: none; cursor: pointer;"
-                      title="Accepter"
+                      title="View details"
+                      (click)="viewDetails(demande.id)"
                     >
-                      <i class="fas fa-check" style="color: green;"></i> <!-- Icône Coche -->
-                    </button>
-                    <!-- Icône Refuser -->
-                    <button
-                      style="background: none; border: none; cursor: pointer;"
-                      title="Refuser"
-                    >
-                      <i class="fas fa-times" style="color: red;"></i> <!-- Icône X -->
+                      <i class="fas fa-eye" style="color: blue;"></i>
                     </button>
                   </td>
-                  
-                  
                 </tr>
-            
+                <tr *ngIf="filteredDemandes.length === 0">
+                  <td colspan="7" style="text-align: center;">
+                    {{ "No data found" }}
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
+
         </div>
       </div>
     </main>

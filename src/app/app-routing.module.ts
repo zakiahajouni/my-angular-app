@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'modifyServiceClient/:id', loadChildren: () => import('./pages/modify-service-client/modify-service-client.module').then(m => m.ModifyServiceClientModule) },
   { path: 'listProfessional', loadChildren: () => import('./pages/list-professional/list-professional.module').then(m => m.ListProfessionalModule) },
   { path: 'addProfessional', loadChildren: () => import('./pages/add-professional/add-professional.module').then(m => m.AddProfessionalModule) },
-  { path: 'modifyProfessional', loadChildren: () => import('./pages/modify-professional/modify-professional.module').then(m => m.ModifyProfessionalModule) },
+  { path: 'modifyProfessional/:id', loadChildren: () => import('./pages/modify-professional/modify-professional.module').then(m => m.ModifyProfessionalModule) },
   { path: 'listRequest', loadChildren: () => import('./pages/list-request/list-request.module').then(m => m.ListRequestModule) },
   { path: 'dashboard', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule) },
 

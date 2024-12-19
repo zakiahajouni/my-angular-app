@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ListRequestRoutingModule } from './list-request-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 import { ListRequestComponent } from './list-request.component';
 
 
@@ -13,7 +14,8 @@ import { ListRequestComponent } from './list-request.component';
   imports: [
     CommonModule,
     ListRequestRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class ListRequestModule { }

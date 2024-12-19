@@ -10,9 +10,9 @@ import { TranslationService } from 'src/app/translation.service';
 })
 export class ListCategorieComponent implements OnInit {
   currentLang: string;
-  categories: any[] = []; // Holds all fetched categories
-  filteredCategories: any[] = []; // Holds categories filtered based on search
-  searchText: string = ''; // Two-way binding with the search input
+  categories: any[] = [];
+  filteredCategories: any[] = [];
+  searchText: string = '';
 
   constructor(
     private categorieService: CategorieService,
