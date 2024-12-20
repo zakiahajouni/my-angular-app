@@ -20,8 +20,9 @@
               <i class="fas fa-user-tie"></i>{{ translate('sidebar.Professionals') }} </li>
               <li onclick="window.location.href='/listRequest';" style="cursor: pointer;">
                 <i class="fas fa-tasks"></i>{{ translate('sidebar.Requests') }} </li>
-        <li><i class="fas fa-sign-out-alt"></i> {{ translate('sidebar.Logout') }}</li>
-      </ul>
+                <li (click)="logout()">
+                  <i class="fas fa-sign-out-alt"></i>{{ translate('sidebar.Logout') }}
+                </li>      </ul>
     </div>
 
     <!-- Main Content -->

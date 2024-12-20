@@ -173,3 +173,102 @@ body {
 .color-box.red {
   background-color: #F04358; /* Red */
 }
+.chart-card {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.color-box {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.color-box.green {
+  background-color: #4DA768;
+}
+
+.color-box.blue {
+  background-color: #007bff;
+}
+
+.color-box.red {
+  background-color: #dc3545;
+}
+.chart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Add spacing between the two charts */
+  margin-top: 20px;
+}
+
+.chart-card {
+  flex: 1; /* Equal width for both charts */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.chart-card h3 {
+  margin-bottom: 20px;
+}
+
+.chart-card canvas {
+  max-width: 100%; /* Ensure the canvas adjusts to the card width */
+  max-height: 300px; /* Restrict the height of the chart */
+  margin: 0 auto; /* Center align the canvas */
+}
+
+.legend {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.color-box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+}
+
+.color-box.green {
+  background-color: #4DA768;
+}
+
+.color-box.blue {
+  background-color: #007bff;
+}
+
+.color-box.red {
+  background-color: #dc3545;
+}
+

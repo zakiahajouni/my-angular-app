@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslationService } from 'src/app/translation.service';
 import { SubCategoriesService } from 'src/app/services/SubCategoriesServices/sub-categories.service';
 import { ServiceProfessionalService } from 'src/app/services/ProfessionalService/service-professional.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-modify-professional',
@@ -20,9 +21,10 @@ export class ModifyProfessionalComponent implements OnInit {
     private translationService: TranslationService,
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router,
     private subCategoriesService: SubCategoriesService,
-    private professionalService: ServiceProfessionalService
+    private professionalService: ServiceProfessionalService,
+     private authService: AuthService,
+        private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -95,5 +97,9 @@ export class ModifyProfessionalComponent implements OnInit {
       },
       (error) => console.error('Error updating professional:', error)
     );
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

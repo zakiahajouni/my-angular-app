@@ -5,6 +5,7 @@ import { SubCategoriesService } from 'src/app/services/SubCategoriesServices/sub
 import { CategorieService } from 'src/app/services/CategoriesService/categorie.service';
 import { Category } from 'src/app/models/Categorie';
 import { TranslationService } from 'src/app/translation.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-modify-sous-categorie',
@@ -22,7 +23,9 @@ export class ModifySousCategorieComponent implements OnInit {
     private subCategoriesService: SubCategoriesService,
     private categorieService: CategorieService,
     public router: Router,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    private authService: AuthService
+
   ) {}
 
   ngOnInit(): void {
@@ -75,5 +78,9 @@ export class ModifySousCategorieComponent implements OnInit {
 
   translate(key: string) {
     return this.translationService.translate(key);
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

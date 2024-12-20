@@ -20,8 +20,9 @@
                 <i class="fas fa-user-tie"></i>{{ translate('sidebar.Professionals') }} </li>
             <li onclick="window.location.href='/listRequest';" style="cursor: pointer;">
                 <i class="fas fa-tasks"></i>{{ translate('sidebar.Requests') }} </li>
-            <li><i class="fas fa-sign-out-alt"></i> {{ translate('sidebar.Logout') }}</li>
-        </ul>
+                <li (click)="logout()">
+                  <i class="fas fa-sign-out-alt"></i>{{ translate('sidebar.Logout') }}
+                </li>        </ul>
     </div>
     <!-- Main Content -->
     <div class="main-content">
@@ -30,45 +31,50 @@
             <div class="card">
                 <i class="fas fa-th-list"></i>
                 <div class="title"> {{ translate('sidebar.Categories') }}</div>
-                <div class="value">750,00</div>
+                <div class="value">{{ totalCategories }}</div>
             </div>
             <div class="card">
                 <i class="fas fa-stream"></i>
                 <div class="title">{{ translate('sidebar.Sub-categories') }}</div>
-                <div class="value">215</div>
+                <div class="value">{{totalSousCategories}}</div>
             </div>
             <div class="card">
                 <i class="fas fa-concierge-bell"></i>
                 <div class="title">{{ translate('sidebar.Services') }}</div>
-                <div class="value">1400</div>
+                <div class="value">{{totalServices}}</div>
             </div>
             <div class="card">
                 <i class="fas fa-user-tie"></i>
                 <div class="title">{{ translate('sidebar.Professionals') }}</div>
-                <div class="value">95%</div>
+                <div class="value">{{totalProfessionels}}</div>
             </div>
         </div>
-<!-- New Card with Pie Chart -->
-<!-- New Card with Donut Chart -->
-<div class="chart-card">
-    <h3>Request Status Distribution</h3>
-    <div class="donut-chart"></div>
-    <!-- Legend -->
-    <div class="legend">
-        <div class="legend-item">
-            <span class="color-box green"></span> Accepted
-        </div>
-        <div class="legend-item">
-            <span class="color-box blue"></span>In progress
-        </div>
-        <div class="legend-item">
-            <span class="color-box red"></span> Rejected
-        </div>
-    </div>
-</div>
 
+        <div class="chart-row">
+          <!-- Donut Chart -->
+          <div class="chart-card">
+            <h3>Request Status Distribution</h3>
+            <canvas id="donutChart"></canvas>
+            <!-- Legend -->
+            <div class="legend">
+              <div class="legend-item">
+                <span class="color-box green"></span> Accepted
+              </div>
+              <div class="legend-item">
+                <span class="color-box blue"></span> In progress
+              </div>
+              <div class="legend-item">
+                <span class="color-box red"></span> Rejected
+              </div>
+            </div>
+          </div>
+
+          <!-- Bar Chart -->
+          <div class="chart-card">
+            <h3>Top Services by Requests</h3>
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
 
     </div>
-    
-    
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServiceCustomer } from 'src/app/models/ServiceCustomer';
+import { AuthService } from 'src/app/services/auth.service';
 import { ServiceCustomerService } from 'src/app/services/ServiceCustomerService/service-customer.service';
 import { TranslationService } from 'src/app/translation.service';
 
@@ -16,7 +18,11 @@ export class ListServiceClientComponent implements OnInit {
 
   constructor(
     private serviceCustomerService: ServiceCustomerService,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+        private authService: AuthService,
+            private router: Router
+
+
   ) {}
 
   ngOnInit(): void {
@@ -64,5 +70,11 @@ export class ListServiceClientComponent implements OnInit {
 
   translate(key: string) {
     return this.translationService.translate(key);
+  }
+
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

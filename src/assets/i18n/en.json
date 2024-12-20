@@ -16,7 +16,9 @@
     "password": "Password",
     "forgetPassword": "Forget Your Password?",
     "welcomeBack": "Welcome Back!",
-    "enterDetails": "Enter your personal details to use all of site features"
+    "enterDetails": "Enter your personal details to use all of site features",
+    "requiredFields":"Verify your email or password."
+
   },
   "signup": {
     "createAccount": "Create Account",

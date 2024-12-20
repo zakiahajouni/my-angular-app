@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { SubCategoriesService } from 'src/app/services/SubCategoriesServices/sub-categories.service';
 import { TranslationService } from 'src/app/translation.service';
 
@@ -18,6 +19,7 @@ export class ListSousCategorieComponent implements OnInit {
     private subCategoriesService: SubCategoriesService,
     private translationService: TranslationService,
     public router: Router,
+      private authService: AuthService,
 
   ) {
     this.currentLang = 'en';
@@ -72,5 +74,9 @@ export class ListSousCategorieComponent implements OnInit {
 
   translate(key: string) {
     return this.translationService.translate(key);
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

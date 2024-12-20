@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { ServiceProfessionalService } from 'src/app/services/ProfessionalService/service-professional.service';
 import { TranslationService } from 'src/app/translation.service';
 
@@ -17,7 +18,9 @@ export class ListProfessionalComponent implements OnInit {
   constructor(
     private professionalService: ServiceProfessionalService,
     private translationService: TranslationService,
-    private router: Router
+    private router: Router,
+        private authService: AuthService,
+
   ) {}
 
   ngOnInit(): void {
@@ -63,6 +66,11 @@ export class ListProfessionalComponent implements OnInit {
         professional.nomComplet.toLowerCase().includes(search)
       );
     }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

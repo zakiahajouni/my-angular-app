@@ -51,4 +51,11 @@ export class ServiceDemandesService {
   annulerDemande(id: number): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}/${id}/annuler`, {});
   }
+  getStatusDistribution(): Observable<{ [key: string]: number }> {
+    return this.http.get<{ [key: string]: number }>(`${this.baseUrl}/status-distribution`);
+  }
+  getTopServices(): Observable<{ [key: string]: number }> {
+    return this.http.get<{ [key: string]: number }>(`${this.baseUrl}/top-services`);
+  }
+
 }

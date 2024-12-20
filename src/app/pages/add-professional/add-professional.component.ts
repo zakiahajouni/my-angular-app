@@ -5,6 +5,7 @@ import { SubCategoriesService } from 'src/app/services/SubCategoriesServices/sub
 import { ServiceProfessionalService } from 'src/app/services/ProfessionalService/service-professional.service';
 import { Professional } from 'src/app/models/ProfessionalModel';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-add-professional',
@@ -22,7 +23,9 @@ export class AddProfessionalComponent implements OnInit {
     private http: HttpClient,
     private subCategoriesService: SubCategoriesService,
     private professionalService: ServiceProfessionalService,
-        private router: Router
+    private authService: AuthService,
+
+    private router: Router
 
   ) {}
 
@@ -61,4 +64,9 @@ export class AddProfessionalComponent implements OnInit {
       (error) => console.error('Error adding professional:', error)
     );
   }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { ServiceDemandesService } from 'src/app/services/DemandeService/service-demandes.service';
 import { TranslationService } from 'src/app/translation.service';
 
@@ -16,11 +18,14 @@ export class ListRequestComponent implements OnInit {
 
   constructor(
     private demandeService: ServiceDemandesService,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    private router: Router,
+        private authService: AuthService,
+
   ) {}
 
   ngOnInit(): void {
-    this.filterDate = new Date().toISOString().split('T')[0]; // Set today's date as default
+    this.filterDate = new Date().toISOString().split('T')[0];
     this.getDemandes();
   }
 
@@ -82,6 +87,13 @@ export class ListRequestComponent implements OnInit {
   }
 
   viewDetails(id: number): void {
-    alert(this.translate('listRequest.viewDetails') + ` ID: ${id}`);
+    this.router.navigate(['/detailsDemande', id]);
   }
+
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
 }

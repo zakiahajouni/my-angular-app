@@ -3,6 +3,7 @@ import { CategorieService } from 'src/app/services/CategoriesService/categorie.s
 import { Router } from '@angular/router';
 import { TranslationService } from 'src/app/translation.service';
 import { Category } from 'src/app/models/Categorie';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-add-categorie',
@@ -16,6 +17,8 @@ export class AddCategorieComponent implements OnInit {
   constructor(
     private translationService: TranslationService,
     private categorieService: CategorieService,
+    private authService: AuthService,
+
     private router: Router
   ) {
     this.currentLang = 'en';
@@ -54,5 +57,9 @@ export class AddCategorieComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
