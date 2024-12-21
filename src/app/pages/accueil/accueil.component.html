@@ -14,7 +14,7 @@
       </select>
 
       <button class="search-button">
-        <i class="fas fa-search"></i>Search
+        <i class="fas fa-search"></i> Search
       </button>
     </div>
   </div>
@@ -29,14 +29,18 @@
           <img src="./assets/img/personnalise.png" alt="Service Image">
         </div>
         <div class="doctor-specialty">{{ customer.nom }}</div>
-        <h3 class="doctor-name">Disponible <i class="fas fa-check-circle"></i></h3>
-        <div class="doctor-location">{{ customer.adresse }}
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
+        <h3 class="doctor-name">Available</h3>
+        <div class="doctor-location">{{ customer.adresse }}</div>
         <div class="doctor-actions">
-          <button class="action-button">
-            <i class="fas fa-video"></i> Réserver
-          </button>
+          <!-- Add the click event to select the service and set selectedService -->
+          <button class="action-button" (click)="selectService(customer)" [routerLink]="['/demande']" 
+          [queryParams]="{ serviceId: customer.id, serviceNom: customer.nom }">
+          Book
+        </button>
+        <button class="action-button" (click)="openServiceModal(customer)">
+          View Details
+        </button>
+        
         </div>
         <div class="doctor-reviews">
           <span class="star" data-index="1">&#9734;</span>
@@ -46,9 +50,10 @@
           <span class="star" data-index="5">&#9734;</span>
         </div>
       </div>
+      
     </div>
     <div *ngIf="serviceCustomers.length > 4" class="see-more-link">
-      <a routerLink="/trouveService">Voir plus</a>
+      <a routerLink="/services">View more</a>
     </div>
   </div>
 </section>
@@ -72,34 +77,102 @@
 <section class="professionals-section">
   <div class="container-service">
     <h2>Our Professionals</h2>
-    <div class="professional-grid">
-      <div class="professional-card" *ngFor="let professional of professionals | slice: 0:4">
-        <div class="professional-image">
-          <img src="./assets/img/personnalise.png" alt="Professional Image">
-        </div>
-        <div class="professional-info">
-          <div class="row">
-            <div class="professional-name">{{ professional.nom_complet }}</div>
-            <div class="professional-experience">Experience: {{ professional.experience }}</div>
-          </div>
-          <div class="row">
-            <div class="professional-location">
-              {{ professional.adresse }}
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="professional-certification">Certification: {{ professional.certification }}</div>
-          </div>
-          <div class="row">
-            <div class="professional-phone">{{ professional.telephone }}</div>
-            <div class="professional-category">Category: {{ professional.sous_categorie }}</div>
-          </div>
-        </div>
-        
-      </div>
+  </div>
+  <div class="container-service">
+    <div class="doctors-grid">
+<!-- Liste des professionnels -->
+<div class="doctor-card" *ngFor="let professional of professionals | slice: 0:4">
+  <div class="doctor-image">
+    <img src="./assets/img/personnalise.png" alt="Service Image">
+  </div>
+  <div class="doctor-name">{{ professional.nomComplet }}</div>
+  <div class="doctor-specialty">{{ professional.sousCategorie.nom }}</div>
+  <div class="doctor-location">{{ professional.adresse }}</div>
+  <div class="doctor-actions">
+    <button class="action-button" (click)="openModal(professional)">
+      View Details
+    </button>
+  </div>
+</div>
     </div>
-    <div *ngIf="professionals.length > 4" class="see-more-link">
-      <a routerLink="/professionals">See More</a>
+    <div *ngIf="serviceCustomers.length > 4" class="see-more-link">
+      <a routerLink="/services">View more</a>
     </div>
   </div>
 </section>
-
+<div class="modal" [class.show]="isModalOpen">
+  <div class="modal-content">
+    <span class="close-button" (click)="closeModal()">&times;</span>
+    <h2>{{ selectedProfessional?.nomComplet || 'N/A' }}</h2>
+    
+    <table class="modal-table">
+      <tr>
+        <td class="icon-column"><i class="fas fa-map-marker-alt"></i></td>
+        <td>{{ selectedProfessional?.adresse || 'N/A' }}</td>
+        <td class="icon-column"><i class="fas fa-phone-alt"></i></td>
+        <td>{{ selectedProfessional?.telephone || 'N/A' }}</td>
+      </tr>
+      <tr>
+        <td class="icon-column"><i class="fas fa-certificate"></i></td>
+        <td>{{ selectedProfessional?.certification || 'N/A' }}</td>
+        <td class="icon-column"><i class="fas fa-briefcase"></i></td>
+        <td>{{ selectedProfessional?.experience || 'N/A' }}</td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <i class="fas fa-info-circle ml-12">  </i>   
+          {{ selectedProfessional?.description || 'N/A' }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <p>We connect you with trusted professionals and services tailored to your needs.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a routerLink="/about">About Us</a></li>
+          <li><a routerLink="/services">Services</a></li>
+          <li><a routerLink="/professionals">Professionnels</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Tunisia</p>
+        <p><i class="fas fa-phone-alt"></i> +216 23 456 789</p>
+        <p><i class="fas fa-envelope"></i> easyConnect@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!-- Modal for Service -->
+<div class="modal" [class.show]="isServiceModalOpen">
+  <div class="modal-content">
+    <span class="close-button" (click)="closeServiceModal()">&times;</span>
+    <h2>{{ selectedService?.nom || 'N/A' }}</h2>
+    
+    <table class="modal-table">
+      <tr>
+        <td class="icon-column"><i class="fas fa-dollar-sign"></i></td>
+        <td>Prix: {{ selectedService?.prix || 'N/A' }}</td>
+        <td class="icon-column"><i class="fas fa-map-marker-alt"></i></td>
+        <td>Adresse: {{ selectedService?.adresse || 'N/A' }}</td>
+      </tr>
+      <tr>
+        <td class="icon-column"><i class="fas fa-tags"></i></td>
+        <td>Sous Catégorie: {{ selectedService?.sousCategorie?.nom || 'N/A' }}</td>
+        <td class="icon-column"><i class="fas fa-align-left"></i></td>
+        <td>Description: {{ selectedService?.description || 'N/A' }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

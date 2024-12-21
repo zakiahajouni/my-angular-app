@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Demande } from 'src/app/models/DemandeModel';
+import { Demande } from 'src/app/models/Demande';
 
 @Injectable({
   providedIn: 'root',
@@ -21,11 +21,11 @@ export class ServiceDemandesService {
   getDemandeById(id: number): Observable<Demande> {
     return this.http.get<Demande>(`${this.baseUrl}/${id}`);
   }
+// Add a new demande
+addDemande(demande: Demande): Observable<any> {
+  return this.http.post(`${this.baseUrl}`, demande, { responseType: 'text' });
+}
 
-  // Add a new demande
-  addDemande(demande: Demande): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, demande);
-  }
 
   // Update an existing demande
   updateDemande(demande: Demande): Observable<any> {

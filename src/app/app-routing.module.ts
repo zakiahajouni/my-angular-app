@@ -12,14 +12,33 @@ const routes: Routes = [
     path: 'sign-up',
     loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule)
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
 
-  // Protected routes
   {
     path: 'accueil',
     loadChildren: () => import('./pages/accueil/accueil.module').then(m => m.AccueilModule),
-    canActivate: [AuthGuard]
   },
+  {
+    path: 'demande',
+    loadChildren: () => import('./pages/demande/demande.module').then(m => m.DemandeModule),
+  },
+  {
+    path: 'services',
+    loadChildren: () => import('./pages/find-service/find-service.module').then(m => m.FindServiceModule),
+  },
+  {
+    path: 'professionnels',
+    loadChildren: () => import('./pages/find-pro/find-pro.module').then(m => m.FindProModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule),
+  },
+
+
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+
+  // Protected routes
+
   {
     path: 'listCategorie',
     loadChildren: () => import('./pages/list-categorie/list-categorie.module').then(m => m.ListCategorieModule),

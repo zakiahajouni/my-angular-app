@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+
+<main class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="text-content">
+          <h1>Find the best professionals!</h1>
+          <p>
+            Find our selection of the best verified service providers throughout Tunisia. Whether you're looking for an experienced plumber, a certified electrician, or any other qualified professional, ijeni connects you with local experts ready to meet your needs. Each service provider is rigorously selected to guarantee the highest quality of service. Consult customer reviews, contact the ideal professional near you. </p>
+        </div>
+        <div class="image-content">
+          <img src="./assets/img/pro.png" alt="Service providers" />
+        </div>
+      </div>
+    </div>
+  </main>
+  <section class="professionals-section">
+    <div class="container-service">
+      <h2>Our Professionals</h2>
+    </div>
+    <div class="container-service">
+      <div class="doctors-grid">
+  <!-- Liste des professionnels -->
+  <div class="doctor-card" *ngFor="let professional of professionals | slice: 0:4">
+    <div class="doctor-image">
+      <img src="./assets/img/personnalise.png" alt="Service Image">
+    </div>
+    <div class="doctor-name">{{ professional.nomComplet }}</div>
+    <div class="doctor-specialty">{{ professional.sousCategorie.nom }}</div>
+    <div class="doctor-location">{{ professional.adresse }}</div>
+    <div class="doctor-actions">
+      <button class="action-button" (click)="openModal(professional)">
+        View Details
+      </button>
+    </div>
+  </div>
+      </div>
+    </div>
+  </section>
+  <div class="modal" [class.show]="isModalOpen">
+    <div class="modal-content">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <h2>{{ selectedProfessional?.nomComplet || 'N/A' }}</h2>
+      
+      <table class="modal-table">
+        <tr>
+          <td class="icon-column"><i class="fas fa-map-marker-alt"></i></td>
+          <td>{{ selectedProfessional?.adresse || 'N/A' }}</td>
+          <td class="icon-column"><i class="fas fa-phone-alt"></i></td>
+          <td>{{ selectedProfessional?.telephone || 'N/A' }}</td>
+        </tr>
+        <tr>
+          <td class="icon-column"><i class="fas fa-certificate"></i></td>
+          <td>{{ selectedProfessional?.certification || 'N/A' }}</td>
+          <td class="icon-column"><i class="fas fa-briefcase"></i></td>
+          <td>{{ selectedProfessional?.experience || 'N/A' }}</td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <i class="fas fa-info-circle ml-12">  </i>   
+            {{ selectedProfessional?.description || 'N/A' }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <p>We connect you with trusted professionals and services tailored to your needs.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a routerLink="/about">About Us</a></li>
+            <li><a routerLink="/services">Services</a></li>
+            <li><a routerLink="/professionnels">Professionnels</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Tunisia</p>
+          <p><i class="fas fa-phone-alt"></i> +216 23 456 789</p>
+          <p><i class="fas fa-envelope"></i> easyConnect@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
