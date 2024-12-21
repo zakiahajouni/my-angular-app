@@ -108,13 +108,12 @@ export class DashboardComponent implements OnInit {
 
   renderDonutChart() {
     const ctx = document.getElementById('donutChart') as HTMLCanvasElement;
-
     const data = {
-
+      labels: Object.keys(this.statusDistribution),
       datasets: [
         {
           data: Object.values(this.statusDistribution),
-          backgroundColor: ['#007bff', '#dc3545', '#4DA768'],
+          backgroundColor: ['#4DA768', '#007bff', '#dc3545'], 
         },
       ],
     };
@@ -132,7 +131,6 @@ export class DashboardComponent implements OnInit {
       },
     });
   }
-
 
   changeLanguage(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
@@ -194,3 +192,6 @@ export class DashboardComponent implements OnInit {
   }
 
 }
+
+
+

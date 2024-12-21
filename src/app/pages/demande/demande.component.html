@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="card-container">
+  <div class="service-card">
+    <!-- Partie supérieure avec les informations du service -->
+    <!-- <div class="service-info">
+      <h2>Service choisi: {{ selectedService?.nom }}</h2>
+      <p><strong>Sous Catégorie:</strong> {{ selectedService?.sousCategorie }}</p>
+      <p><strong>Adresse:</strong> {{ selectedService?.adresse }}</p>
+      <p><strong>Prix:</strong> {{ selectedService?.prix }}</p>
+      <p><strong>Description:</strong> {{ selectedService?.description || 'N/A' }}</p>
+    </div> -->
+
+    <!-- Formulaire en bas de la carte -->
+    <div class="form-section">
+      <h3>Faire une demande</h3>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nom">Nom Complet:</label>
+          <input [(ngModel)]="demande.clientName" type="text" id="nom" name="nom" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input [(ngModel)]="demande.email" type="email" id="email" name="email" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Numéro de téléphone:</label>
+          <input   [(ngModel)]="demande.phoneNumber" type="tel" id="phone" name="phone" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse:</label>
+          <input  [(ngModel)]="demande.adresse" type="text" id="adresse" name="adresse" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="date">Date:</label>
+          <input  [(ngModel)]="demande.date" type="date" id="date" name="date" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea  [(ngModel)]="demande.noteSupplementaire" id="message" name="message" class="form-input" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Envoyer la demande</button>
+      </form>
+    </div>
+  </div>
+</div>
