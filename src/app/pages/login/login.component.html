@@ -13,27 +13,41 @@
 
 <body>
 
-    <div class="container" id="container">
-
-        <div class="form-container sign-in">
-            <form>
-                <h1>{{ translate('login.signIn') }}</h1>
-
-                 <input type="email" placeholder="{{ translate('login.email') }}">
-                <input type="password" placeholder="{{ translate('login.password') }}">
-                <a href="#">{{ translate('login.forgetPassword') }}</a>
-                <button>{{ translate('login.signIn') }}</button>
-            </form>
-        </div>
-        <div class="toggle-container">
-            <div class="toggle">
-
-                <div class="toggle-panel toggle-right">
-                  <img src="./assets/img/Mobile login-rafiki.png" alt="Mobile login" width="300" height="300">
-                </div>
-            </div>
-        </div>
+  <div class="container" id="container">
+    <div class="form-container sign-in">
+      <form (submit)="login(); $event.preventDefault()">
+        <h1>{{ translate('login.signIn') }}</h1>
+        <input
+          type="email"
+          [(ngModel)]="authModel.email"
+          placeholder="{{ translate('login.email') }}"
+          required
+        />
+        <input
+          type="password"
+          [(ngModel)]="authModel.password"
+          placeholder="{{ translate('login.password') }}"
+          required
+        />
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <!-- <a href="#">{{ translate('login.forgetPassword') }}</a> -->
+        <button type="submit">{{ translate('login.signIn') }}</button>
+      </form>
     </div>
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-right">
+          <img
+            src="./assets/img/Mobile login-rafiki.png"
+            alt="Mobile login"
+            width="300"
+            height="300"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
 
  </body>
 

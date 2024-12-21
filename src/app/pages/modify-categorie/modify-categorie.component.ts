@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategorieService } from 'src/app/services/CategoriesService/categorie.service';
 import { TranslationService } from 'src/app/translation.service';
 
@@ -17,7 +18,9 @@ export class ModifyCategorieComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private categorieService: CategorieService,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+     private authService: AuthService,
+        private router: Router
   ) {
     this.currentLang = 'en';
   }
@@ -71,5 +74,10 @@ export class ModifyCategorieComponent implements OnInit {
 
   translate(key: string) {
     return this.translationService.translate(key);
+
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

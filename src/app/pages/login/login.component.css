@@ -208,3 +208,9 @@ body{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+

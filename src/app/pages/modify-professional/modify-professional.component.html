@@ -20,8 +20,9 @@
               <i class="fas fa-user-tie"></i>{{ translate('sidebar.Professionals') }} </li>
               <li onclick="window.location.href='/listRequest';" style="cursor: pointer;">
                 <i class="fas fa-tasks"></i>{{ translate('sidebar.Requests') }} </li>
-        <li><i class="fas fa-sign-out-alt"></i> {{ translate('sidebar.Logout') }}</li>
-      </ul>
+                <li (click)="logout()">
+                  <i class="fas fa-sign-out-alt"></i>{{ translate('sidebar.Logout') }}
+                </li>       </ul>
     </div>
     <!-- Main Content -->
     <div class="main-content">
@@ -30,119 +31,166 @@
         <div class="sign-up-card">
           <!-- Title -->
           <h2 style="text-align: center; display: flex; align-items: center; justify-content: center;">
-            {{ translate('modifyProfessional.title') }} 
+            {{ translate('modifyProfessional.title') }}
           </h2>
-  
-          <!-- Form -->
-          <form>
-            <!-- Name Field -->
-            <div class="form-group full-width top-margin">
-              <label for="name" style="font-weight: bold;">{{ translate('addProfessional.nom') }} </label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                class="form-control" 
-                placeholder="{{ translate('addProfessional.enterName') }}"
-                style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;" />
-            </div>
 
-            <!-- telephone Field -->
-            <div class="form-group full-width top-margin">
-                <label for="telephone" style="font-weight: bold;">{{ translate('addProfessional.telephone') }} </label>
-                <input 
-                  type="text" 
-                  id="telephone" 
-                  name="telephone" 
-                  class="form-control" 
-                  placeholder="{{ translate('addProfessional.enterPhone') }}"
-                  style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;" />
+          <div class="main-content">
+            <div class="container">
+              <!-- Card -->
+              <div class="sign-up-card">
+                <!-- Title -->
+                <h2
+                  style="text-align: center; display: flex; align-items: center; justify-content: center;"
+                >
+                  {{ translate('modifyProfessional.title') }}
+                </h2>
+
+                <!-- Form -->
+                <form (ngSubmit)="onSubmit()">
+                  <!-- Name Field -->
+                  <div class="form-group full-width top-margin">
+                    <label for="name" style="font-weight: bold;"
+                      >{{ translate('addProfessional.nom') }}
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      [(ngModel)]="professional.nomComplet"
+                      name="name"
+                      class="form-control"
+                      placeholder="{{ translate('addProfessional.enterName') }}"
+                      style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"
+                      required
+                    />
+                  </div>
+
+                  <!-- Phone Field -->
+                  <div class="form-group full-width top-margin">
+                    <label for="telephone" style="font-weight: bold;"
+                      >{{ translate('addProfessional.telephone') }}</label
+                    >
+                    <input
+                      type="text"
+                      id="telephone"
+                      [(ngModel)]="professional.telephone"
+                      name="telephone"
+                      class="form-control"
+                      placeholder="{{ translate('addProfessional.enterPhone') }}"
+                      style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"
+                      required
+                    />
+                  </div>
+
+                  <!-- Address Field -->
+                  <div class="form-group full-width top-margin">
+                    <label for="address" style="font-weight: bold;"
+                      >{{ translate('addProfessional.adresse') }}</label
+                    >
+                    <select
+                      id="address"
+                      [(ngModel)]="professional.adresse"
+                      name="address"
+                      class="form-control"
+                      style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"
+                      required
+                    >
+                      <option [ngValue]="null" disabled
+                        >{{ translate('addProfessional.selectCity') }}</option
+                      >
+                      <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                    </select>
+                  </div>
+
+                  <!-- Experience Field -->
+                  <div class="form-group full-width top-margin">
+                    <label for="experience" style="font-weight: bold;"
+                      >{{ translate('addProfessional.experience') }}</label
+                    >
+                    <input
+                      type="text"
+                      id="experience"
+                      [(ngModel)]="professional.experience"
+                      name="experience"
+                      class="form-control"
+                      placeholder="{{ translate('addProfessional.enterExperience') }}"
+                      style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"
+                    />
+                  </div>
+
+                  <!-- Certification Field -->
+                  <div class="form-group full-width top-margin">
+                    <label for="certification" style="font-weight: bold;"
+                      >{{ translate('addProfessional.certification') }}</label
+                    >
+                    <input
+                      type="text"
+                      id="certification"
+                      [(ngModel)]="professional.certification"
+                      name="certification"
+                      class="form-control"
+                      placeholder="{{ translate('addProfessional.enterCertification') }}"
+                      style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"
+                    />
+                  </div>
+
+                  <!-- Subcategory Field -->
+                  <div class="form-group full-width top-margin">
+                    <label for="subcategory" style="font-weight: bold;"
+                      >{{ translate('addProfessional.subcategory') }}</label
+                    >
+                    <select
+                      id="subcategory"
+                      [(ngModel)]="professional.sousCategorie"
+                      name="subcategory"
+                      class="form-control"
+                      style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"
+                      required
+                    >
+                      <option [ngValue]="null" disabled
+                        >{{ translate('addProfessional.selectSubcategory') }}</option
+                      >
+                      <option *ngFor="let subcategory of subcategories" [ngValue]="subcategory">
+                        {{ subcategory.nom }}
+                      </option>
+                    </select>
+                  </div>
+
+                  <!-- Description Field -->
+                  <div class="form-group full-width top-margin">
+                    <label for="description" style="font-weight: bold;"
+                      >{{ translate('addProfessional.description') }}</label
+                    >
+                    <textarea
+                      id="description"
+                      [(ngModel)]="professional.description"
+                      name="description"
+                      class="form-control"
+                      rows="4"
+                      placeholder="{{ translate('addProfessional.enterDescription') }}"
+                      style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"
+                    ></textarea>
+                  </div>
+
+                  <!-- Submit and Cancel Buttons -->
+                  <div class="button-container" style="display: flex; justify-content: space-between; margin-top: 20px;">
+                    <button
+                      type="button"
+                      [routerLink]="['/listProfessional']"
+                      class="cancel-button"
+                      style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 5px;"
+                    >
+                      {{ translate('addProfessional.cancel') }}
+                    </button>
+                    <button
+                      type="submit"
+                      class="submit-button"
+                      style="padding: 10px 20px; background-color: #4caf50; color: white; border: none; border-radius: 5px;"
+                    >
+                      {{ translate('addProfessional.save') }}
+                    </button>
+                  </div>
+                </form>
               </div>
-            <!-- Address Field -->
-            <div class="form-group full-width top-margin">
-                <label for="address" style="font-weight: bold;">{{ translate('addProfessional.adresse') }}</label>
-                <select 
-                  id="address" 
-                  name="address" 
-                  class="form-control" 
-                  style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
-                  <option value="">{{ translate('addProfessional.selectCity') }}</option>
-                  <!-- Liste déroulante des villes -->
-                  <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-                </select>
-              </div>
-              
-
-
-            <!-- experience Field -->
-            <div class="form-group full-width top-margin">
-                <label for="experience" style="font-weight: bold;">{{ translate('addProfessional.experience') }} </label>
-                <input 
-                  type="text" 
-                  id="experience" 
-                  name="experience" 
-                  class="form-control" 
-                  placeholder="{{ translate('addProfessional.enterExperience') }}"
-                  style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;" />
-              </div>
-
-                          <!-- certification Field -->
-            <div class="form-group full-width top-margin">
-                <label for="certification" style="font-weight: bold;">{{ translate('addProfessional.certification') }} </label>
-                <input 
-                  type="text" 
-                  id="certification" 
-                  name="certification" 
-                  class="form-control" 
-                  placeholder="{{ translate('addProfessional.enterCertification') }}"
-                  style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;" />
-              </div>
-              
-
-            <!-- Subcategory Field -->
-            <div class="form-group full-width top-margin">
-              <label for="subcategory" style="font-weight: bold;">{{ translate('addProfessional.subcategory') }} </label>
-              <select 
-                id="subcategory" 
-                name="subcategory" 
-                class="form-control" 
-                style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;">
-                <!-- Add options dynamically -->
-                <option value="">{{ translate('addProfessional.selectSubcategory') }}</option>
-                <!-- Dynamically populate subcategories here -->
-              </select>
             </div>
-
-            <!-- Description Field -->
-            <div class="form-group full-width top-margin">
-              <label for="description" style="font-weight: bold;">{{ translate('addProfessional.description') }}</label>
-              <textarea 
-                id="description" 
-                name="description" 
-                class="form-control" 
-                rows="4" 
-                placeholder="{{ translate('addProfessional.enterDescription') }}"
-                style="padding: 10px; width: 100%; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
-            </div>
-
-            <!-- Submit and Cancel Buttons -->
-            <div class="button-container">
-              <button 
-                type="button" 
-                class="cancel-button" 
-                [routerLink]="['/listProfessional']">
-                {{ translate('addProfessional.cancel') }}
-              </button>
-
-              <button 
-                type="submit" 
-                class="submit-button">
-                {{ translate('addProfessional.save') }}
-              </button>
-            </div>
-  
-          </form>
+          </div>
         </div>
-      </div>
-    </div>
-</div>

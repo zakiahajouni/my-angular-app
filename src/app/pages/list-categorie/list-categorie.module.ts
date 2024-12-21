@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ListCategorieComponent
+    ListCategorieComponent,
   ],
   imports: [
     CommonModule,

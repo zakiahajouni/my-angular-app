@@ -28,8 +28,9 @@ export class ServiceProfessionalService {
 
   // Update an existing Professional
   updateProfessionnel(professionnel: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${professionnel.id}`, professionnel);
+    return this.http.put(this.baseUrl, professionnel);
   }
+
 
   // Delete a Professional by ID
   deleteProfessionnelById(id: number): Observable<any> {

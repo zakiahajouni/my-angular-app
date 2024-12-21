@@ -6,27 +6,26 @@
 <div class="layout">
   <!-- Sidebar -->
   <div class="sidebar">
+    <!-- Sidebar Title -->
     <p class="navbar-logo">{{ translate('sidebar.EasyConnect') }}</p>
+<br>        <!-- Sidebar Menu -->
     <ul>
-      <li
-        onclick="window.location.href='/dashboard';"
-        style="cursor: pointer;"
-      >
-        <i class="fas fa-tachometer-alt"></i>{{ translate('sidebar.dashboard') }}
-      </li>
-      <li
-        onclick="window.location.href='/listCategorie';"
-        style="cursor: pointer;"
-      >
+      <li onclick="window.location.href='/dashboard';" style="cursor: pointer;">
+        <i class="fas fa-tachometer-alt"></i>{{ translate('sidebar.dashboard') }}</li>
+      <li onclick="window.location.href='/listCategorie';" style="cursor: pointer;">
         <i class="fas fa-th-list"></i> {{ translate('sidebar.Categories') }}
       </li>
-      <li
-        onclick="window.location.href='/listSousCategorie';"
-        style="cursor: pointer;"
-      >
-        <i class="fas fa-stream"></i> {{ translate('sidebar.Sub-categories') }}
-      </li>
-    </ul>
+      <li onclick="window.location.href='/listSousCategorie';" style="cursor: pointer;">
+        <i class="fas fa-stream"></i> {{ translate('sidebar.Sub-categories') }}</li>
+        <li onclick="window.location.href='/listServiceClient';" style="cursor: pointer;">
+          <i class="fas fa-concierge-bell"></i> {{ translate('sidebar.Services') }}</li>
+          <li onclick="window.location.href='/listProfessional';" style="cursor: pointer;">
+            <i class="fas fa-user-tie"></i>{{ translate('sidebar.Professionals') }} </li>
+            <li onclick="window.location.href='/listRequest';" style="cursor: pointer;">
+              <i class="fas fa-tasks"></i>{{ translate('sidebar.Requests') }} </li>
+              <li (click)="logout()">
+                <i class="fas fa-sign-out-alt"></i>{{ translate('sidebar.Logout') }}
+              </li>      </ul>
   </div>
 
   <!-- Main Content -->

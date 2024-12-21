@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/models/Categorie';
 import { SousCategory } from 'src/app/models/SubCategories';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategorieService } from 'src/app/services/CategoriesService/categorie.service';
 import { SubCategoriesService } from 'src/app/services/SubCategoriesServices/sub-categories.service';
 import { TranslationService } from 'src/app/translation.service';
@@ -19,6 +20,7 @@ export class AddSousCategorieComponent implements OnInit {
     private translationService: TranslationService,
     private subCategoriesService: SubCategoriesService,
     private categoriesService: CategorieService,
+    private authService: AuthService,
     private router: Router
 
   ) {}
@@ -47,5 +49,10 @@ export class AddSousCategorieComponent implements OnInit {
         console.error('Error:', error);
       }
     );
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

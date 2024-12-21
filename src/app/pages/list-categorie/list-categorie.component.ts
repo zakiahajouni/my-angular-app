@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategorieService } from 'src/app/services/CategoriesService/categorie.service';
 import { TranslationService } from 'src/app/translation.service';
 
@@ -10,14 +11,15 @@ import { TranslationService } from 'src/app/translation.service';
 })
 export class ListCategorieComponent implements OnInit {
   currentLang: string;
-  categories: any[] = []; // Holds all fetched categories
-  filteredCategories: any[] = []; // Holds categories filtered based on search
-  searchText: string = ''; // Two-way binding with the search input
+  categories: any[] = [];
+  filteredCategories: any[] = [];
+  searchText: string = '';
 
   constructor(
     private categorieService: CategorieService,
     private translationService: TranslationService,
     private router: Router,
+      private authService: AuthService,
 
   ) {
     this.currentLang = 'en';
@@ -68,4 +70,10 @@ export class ListCategorieComponent implements OnInit {
       );
     }
   }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
 }

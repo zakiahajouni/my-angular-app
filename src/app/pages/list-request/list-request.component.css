@@ -5,7 +5,7 @@ body {
     background-color: #f8f7fa;
     color: #333;
   }
-  
+
   /* Layout */
   .layout {
     display: flex;
@@ -32,7 +32,7 @@ body {
     font-weight: 700;
     text-decoration: none;
   }
-  
+
 .sidebar ul li {
     padding: 15px 10px;
     font-size: 16px;
@@ -51,18 +51,18 @@ body {
     color: white;
 }
 
-  
+
   /* Main Content */
   .main-content {
     flex: 1;
     padding: 2rem;
   }
-  
+
   .container {
     max-width: 1400px;
     margin: 0 auto;
   }
-  
+
   /* Card */
   .content-card {
     background: #ffffff;
@@ -70,68 +70,68 @@ body {
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.05);
     overflow: hidden;
   }
-  
+
   .card-header {
     padding: 1.5rem 2rem;
     border-bottom: 1px solid #eaeaef;
   }
-  
+
   .card-header h2 {
     margin: 0 0 0.5rem 0;
     font-size: 1.25rem;
     color: #333;
   }
-  
+
   .text-muted {
     color: #6c757d;
     font-size: 0.875rem;
     margin: 0;
   }
-  
+
   /* Table */
   .table-responsive {
     overflow-x: auto;
   }
-  
+
   .category-table {
     width: 100%;
     border-collapse: collapse;
     margin: 0;
   }
-  
+
   .category-table th,
   .category-table td {
     padding: 1rem 2rem;
     text-align: left;
     border-bottom: 1px solid #eaeaef;
   }
-  
+
   .category-table th {
     font-weight: 600;
     color: #6c757d;
     background-color: #f8f9fa;
   }
-  
+
   .category-table tbody tr:nth-child(even) {
     background-color: #f6fbf9;
   }
-  
+
   .category-table tbody tr:hover {
     background-color: #f6fbf9;
   }
-  
+
   /* Responsive Design */
   @media (max-width: 768px) {
     .layout {
       flex-direction: column;
     }
-  
+
     .sidebar {
       width: 100%;
       border-right: none;
       border-bottom: 1px solid #eaeaef;
     }
-  
+
     .category-table th,
     .category-table td {
       padding: 0.75rem 1rem;
@@ -165,5 +165,4 @@ body {
   .add-button:hover {
     background-color: #568364;
   }
-  
-  
+

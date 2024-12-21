@@ -5,6 +5,7 @@ import { SubCategoriesService } from 'src/app/services/SubCategoriesServices/sub
 import { ServiceCustomerService } from 'src/app/services/ServiceCustomerService/service-customer.service';
 import { Router } from '@angular/router';
 import { ServiceCustomer } from 'src/app/models/ServiceCustomer';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-add-service-client',
@@ -22,6 +23,9 @@ export class AddServiceClientComponent implements OnInit {
     private http: HttpClient,
     private subCategoriesService: SubCategoriesService,
     private serviceCustomerService: ServiceCustomerService,
+    private authService: AuthService,
+
+
     private router: Router
   ) {}
 
@@ -54,7 +58,13 @@ export class AddServiceClientComponent implements OnInit {
     );
   }
 
+
+
   translate(key: string) {
     return this.translationService.translate(key);
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

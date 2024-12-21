@@ -4,6 +4,7 @@ import { TranslationService } from 'src/app/translation.service';
 import { HttpClient } from '@angular/common/http';
 import { SubCategoriesService } from 'src/app/services/SubCategoriesServices/sub-categories.service';
 import { ServiceCustomerService } from 'src/app/services/ServiceCustomerService/service-customer.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-modify-service-client',
@@ -22,7 +23,9 @@ export class ModifyServiceClientComponent implements OnInit {
     private route: ActivatedRoute,
         private router: Router,
     private subCategoriesService: SubCategoriesService,
-    private serviceCustomerService: ServiceCustomerService
+    private serviceCustomerService: ServiceCustomerService,
+    private authService: AuthService
+
   ) {}
 
   ngOnInit(): void {
@@ -83,4 +86,10 @@ export class ModifyServiceClientComponent implements OnInit {
       (error) => console.error('Error updating service client:', error)
     );
   }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
 }
