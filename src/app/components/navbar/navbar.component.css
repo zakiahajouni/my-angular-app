@@ -1,7 +1,7 @@
 /* Navbar Styles */
 .navbar {
   width: 100%;
-  background-color: #4DA768;
+  background-color: white;
   padding: 10px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -15,7 +15,7 @@
 }
 
 .navbar-logo {
-  color: #fff;
+  color: #4DA768;
   font-size: 24px;
   font-weight: 700;
   text-decoration: none;
@@ -27,7 +27,7 @@
 }
 
 .navbar-links a {
-  color: #fff;
+  color: #4DA768;
   text-decoration: none;
   font-size: 16px;
   position: relative;
@@ -38,7 +38,7 @@
   display: block;
   width: 0%;
   height: 2px;
-  background: #fff;
+  background: #4DA768;
   transition: width 0.3s;
   position: absolute;
   bottom: -5px;
@@ -66,15 +66,21 @@
   background-color: #fff;
   color: #4DA768;
   padding: 5px 15px;
+  border: 2px solid #4DA768; /* Définit une bordure verte visible */
   border-radius: 4px;
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .connexion-button:hover, .signup-button:hover {
-  background-color: #e0e0e0;
+  background-color: #4DA768;
+  color: #fff; /* Inversion des couleurs au survol */
+}
+
+.connexion-button:hover, .signup-button:hover {
+  background-color: #568364;
 }
 
 /* Language Selector Styles */

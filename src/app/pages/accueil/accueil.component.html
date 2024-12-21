@@ -1,43 +1,105 @@
 <app-navbar></app-navbar>
 
-<!-- Hero Section -->
-<div class="hero-section">
-  <img src="./assets/img/background.jpg" alt="Hero Image" class="hero-image">
-  <div class="hero-overlay">
-    <h1>{{ translate('accueil.welcome') }}</h1>
-    <p>{{ translate('accueil.description') }}</p>
-    <div class="search-bar">
-      <input type="text" placeholder="Search..." />
-      <button>{{ translate('accueil.search') }}</button>
+<main class="hero-section">
+  <div class="container">
+    <h1>The service you need, in just one minute!</h1>
+    <p class="subtitle">Find the best professionals and services in Tunisia.</p>
+
+    <div class="search-inputs">
+      <select class="search-select">
+        <option value="">Choose governorate</option>
+      </select>
+      <select class="search-select">
+        <option value="">Choose service</option>
+      </select>
+
+      <button class="search-button">
+        <i class="fas fa-search"></i>Search
+      </button>
     </div>
   </div>
-</div>
+</main>
 
-<!-- Statistics Section -->
-<div class="statistics-section">
-  <div class="stat-card">
-    <h3>100+</h3>
-    <p>{{ translate('accueil.stat_providers') }}</p>
-  </div>
-  <div class="stat-card">
-    <h3>200+</h3>
-    <p>{{ translate('accueil.stat_clients') }}</p>
-  </div>
-  <div class="stat-card">
-    <h3>300+</h3>
-    <p>{{ translate('accueil.stat_projects') }}</p>
-  </div>
-</div>
-
-
-<!-- New Announcements Section -->
-<div class="annonces-wrapper">
-  <div class="row">
-   <div class="column">
-      <div class="card">
-        <h3>title</h3>
-        <p>title</p>
+<section class="doctors-section">
+  <div class="container-service">
+    <h2>Available customer service</h2>
+    <div class="doctors-grid">
+      <div class="doctor-card" *ngFor="let customer of serviceCustomers | slice: 0:4">
+        <div class="doctor-image">
+          <img src="./assets/img/personnalise.png" alt="Service Image">
+        </div>
+        <div class="doctor-specialty">{{ customer.nom }}</div>
+        <h3 class="doctor-name">Disponible <i class="fas fa-check-circle"></i></h3>
+        <div class="doctor-location">{{ customer.adresse }}
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="doctor-actions">
+          <button class="action-button">
+            <i class="fas fa-video"></i> Réserver
+          </button>
+        </div>
+        <div class="doctor-reviews">
+          <span class="star" data-index="1">&#9734;</span>
+          <span class="star" data-index="2">&#9734;</span>
+          <span class="star" data-index="3">&#9734;</span>
+          <span class="star" data-index="4">&#9734;</span>
+          <span class="star" data-index="5">&#9734;</span>
+        </div>
       </div>
-    </div> 
+    </div>
+    <div *ngIf="serviceCustomers.length > 4" class="see-more-link">
+      <a routerLink="/trouveService">Voir plus</a>
+    </div>
   </div>
-</div>
+</section>
+
+<section class="info-section">
+  <div class="container info-container">
+    <div class="info-text">
+      <h2>Why Choose Us?</h2>
+      <p>Our platform connects you with trusted professionals and services tailored to your needs.</p>
+      <p>Experience a seamless journey with our user-friendly interface and quick service selection.</p>
+      <p>Benefit from personalized recommendations to find exactly what you’re looking for.</p>
+      <p>Trust us to deliver quality and convenience, all in one place.</p>
+      <a routerLink="/about" class="learn-more-btn">Learn More</a>
+    </div>
+    <div class="info-image">
+      <img src="./assets/img/Live collaboration-rafiki.png" alt="Info Section Image">
+    </div>
+  </div>
+</section>
+
+<section class="professionals-section">
+  <div class="container-service">
+    <h2>Our Professionals</h2>
+    <div class="professional-grid">
+      <div class="professional-card" *ngFor="let professional of professionals | slice: 0:4">
+        <div class="professional-image">
+          <img src="./assets/img/personnalise.png" alt="Professional Image">
+        </div>
+        <div class="professional-info">
+          <div class="row">
+            <div class="professional-name">{{ professional.nom_complet }}</div>
+            <div class="professional-experience">Experience: {{ professional.experience }}</div>
+          </div>
+          <div class="row">
+            <div class="professional-location">
+              {{ professional.adresse }}
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="professional-certification">Certification: {{ professional.certification }}</div>
+          </div>
+          <div class="row">
+            <div class="professional-phone">{{ professional.telephone }}</div>
+            <div class="professional-category">Category: {{ professional.sous_categorie }}</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div *ngIf="professionals.length > 4" class="see-more-link">
+      <a routerLink="/professionals">See More</a>
+    </div>
+  </div>
+</section>
+
